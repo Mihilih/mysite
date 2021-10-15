@@ -1,0 +1,44 @@
+* {
+box-sizing: border-box;
+}
+
+.row {
+display: flex;
+}
+
+.col {
+flex: 50%;
+padding: 10px;
+height: 300px;
+}
+
+.image {
+display: block;
+margin-left: auto;
+margin-right: auto;
+width: 100%;
+}
+
+.left {
+width: 60%;
+}
+
+.middle {
+width: 50%;
+}
+
+.column {
+float: left;
+}
+
+.navbar-custom {
+    background-color: brown;
+}
+
+.header{
+    font-size: x-large;
+    color: black;
+    font-size: 300%;
+    text-align: center;
+}
+
