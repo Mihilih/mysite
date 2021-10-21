@@ -124,18 +124,6 @@
                 "complete" === document.readyState ? e() : window.attachEvent ? window.attachEvent("onload", e) : window.addEventListener("load", e, !1);
             }();
             </script>
-
-            <script>
-              (function() {
-              var id = '48f63804-268e-11ec-bd25-0242ac130002';
-              var ci_search = document.createElement('script');
-              ci_search.type = 'text/javascript';
-              ci_search.async = true;
-              ci_search.src = 'https://cse.expertrec.com/api/js/ci_common.js?id=' + id;
-              var s = document.getElementsByTagName('script')[0];
-              s.parentNode.insertBefore(ci_search, s);
-              })();
-              </script>
           
         {% block script %}
             
@@ -246,7 +234,6 @@
 
            </ul>
            <ul class="navbar-nav ms-auto">
-             <ci-search></ci-search>
            </ul>
            
            </div> <!-- navbar-collapse.// -->
