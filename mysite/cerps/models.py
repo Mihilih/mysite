@@ -2,6 +2,7 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.db.models.deletion import CASCADE
 from django.db.models.fields import TextField
+from django.core.validators import MaxValueValidator
 
 # Create your models here.
 class User(AbstractUser):
@@ -21,11 +22,11 @@ class Jounral(models.Model):
     #authors
     authors=models.ManyToManyField("People", related_name="journal")
     #volume
-    volume=models.IntegerField(blank=False, max_digits=10, default="")
+    volume=models.IntegerField(blank=False, default=0)
     #issue
-    issue=models.IntegerField(blank=False, max_digits=10, default="")
+    issue=models.IntegerField(blank=False, default=0)
     #pages
-    pages=models.IntegerField(blank=False, max_digits=10, default="")
+    pages=models.IntegerField(blank=False, default=0)
 
 class Book(models.Model):
     id=models.AutoField(primary_key=True)
@@ -38,7 +39,7 @@ class Book(models.Model):
     #authors
     authors=models.ManyToManyField("People", related_name="book")
     #year
-    year=models.IntegerField(blank=False, max_digits=4, default="")
+    year=models.IntegerField(blank=False, validators=[MaxValueValidator(2999)], default=0)
     #publisher
     publisher=models.TextField(max_length=10000, blank=False, default="")
     #ISBN
@@ -52,11 +53,11 @@ class Patent(models.Model):
     #title
     title=models.TextField(max_length=10000, blank=False, default="")
     #number
-    number=models.IntegerField(blank=False, max_digits=10, default="")
+    number=models.IntegerField(blank=False, default=0)
     #authors
     authors=models.ManyToManyField("People", related_name="patent")
     #year
-    year=models.IntegerField(blank=False, max_digits=4, default="")
+    year=models.IntegerField(blank=False, validators=[MaxValueValidator(2999)], default=0)
 
 class Grant(models.Model):
     id=models.AutoField(primary_key=True)
@@ -80,4 +81,4 @@ class Award(models.Model):
     #awarding agency
     agency=models.TextField(max_length=10000, blank=False, default="")
     #year
-    year=models.IntegerField(blank=False, max_digits=4, default="")
+    year=models.IntegerField(blank=False, validators=[MaxValueValidator(2999)], default=0)
