@@ -39,7 +39,6 @@ class Book(models.Model):
     #authors
     authors=models.ManyToManyField("People", related_name="book")
     #year
-    year=models.IntegerField(blank=False, validators=[MaxValueValidator(2999)], default=0)
     #publisher
     publisher=models.TextField(max_length=10000, blank=False, default="")
     #ISBN
@@ -57,7 +56,6 @@ class Patent(models.Model):
     #authors
     authors=models.ManyToManyField("People", related_name="patent")
     #year
-    year=models.IntegerField(blank=False, validators=[MaxValueValidator(2999)], default=0)
 
 class Grant(models.Model):
     id=models.AutoField(primary_key=True)
@@ -81,4 +79,3 @@ class Award(models.Model):
     #awarding agency
     agency=models.TextField(max_length=10000, blank=False, default="")
     #year
-    year=models.IntegerField(blank=False, validators=[MaxValueValidator(2999)], default=0)
