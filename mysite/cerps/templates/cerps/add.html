@@ -4,11 +4,14 @@
 
 {% block body %}
 
-<a class="btn d-flex justify-content-center" style="background-color: #4e0404;color: white;" href="{% url 'journal' %}" role="button">Journals</a><br/>
-<a class="btn d-flex justify-content-center" style="background-color: #4e0404;color: white;" href="{% url 'book' %}" role="button">Books</a><br/>
-<a class="btn d-flex justify-content-center" style="background-color: #4e0404;color: white;" href="{% url 'patent' %}" role="button">Patents</a><br/>
-<a class="btn d-flex justify-content-center" style="background-color: #4e0404;color: white;" href="{% url 'grant' %}" role="button">Grants</a><br/>
-<a class="btn d-flex justify-content-center" style="background-color: #4e0404;color: white;" href="{% url 'award' %}" role="button">Awards</a><br/>
+<div style="display: flex;flex-wrap: wrap;justify-content: center;align-items: center;width: 100%;">
+    <a class="btn d-flex justify-content-center" style="border-color: #4e0404; width: 33%;margin: 0.5%;border-width: 0.8mm;" href="{% url 'journal' %}" role="button">Journals</a>
+    <a class="btn d-flex justify-content-center" style="border-color: #4e0404; width: 33%;margin: 0.5%;border-width: 0.8mm;" href="{% url 'book' %}" role="button">Books</a>
+    <a class="btn d-flex justify-content-center" style="border-color: #4e0404; width: 33%;margin: 0.5%;border-width: 0.8mm;" href="{% url 'patent' %}" role="button">Patents</a>
+    <a class="btn d-flex justify-content-center" style="border-color: #4e0404; width: 33%;margin: 0.5%;border-width: 0.8mm;" href="{% url 'grant' %}" role="button">Grants</a>
+    <a class="btn d-flex justify-content-center" style="border-color: #4e0404; width: 33%;margin: 0.5%;border-width: 0.8mm;" href="{% url 'award' %}" role="button">Awards</a>
+</div>
+
 
 
 

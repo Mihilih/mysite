@@ -32,7 +32,7 @@ float: left;
 }
 
 .navbar-custom {
-    background-color: brown;
+    background-color:#4e0404;
 }
 
 .header{
@@ -42,3 +42,21 @@ float: left;
     text-align: center;
 }
 
+.carousel .carousel-item {
+    max-height:550px;
+}
+
+.carousel-item img {
+    object-fit:cover;
+    max-height:550px;
+}
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.brown{
+    background-color: #4e0404;
+    border-color: #4e0404;
+    color: white;
+}

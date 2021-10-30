@@ -4,6 +4,34 @@
 
 {% block body %}
 
-JOUNRAL
-
+    <h1  style="text-align: center;">New Journal</h1>
+    <!--new article form-->
+    <form action="{% url 'journal' %}" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <input class="form-control" autofocus type="text" name="name" placeholder="Name of the journal" required>
+        </div>
+        <br/>
+        <div class="form-group">
+            <input class="form-control" autofocus type="text" name="title" placeholder="Title" required>
+        </div>
+        <br/>
+        <div class="form-group">
+            <textarea class="form-control" autofocus type="text" name="authors" placeholder="Authors (separated by commas)"  required></textarea>
+        </div>
+        <br/>
+        <div class="form-group">
+            <input class="form-control" autofocus type="number" name="volume" placeholder="Volume" required>
+        </div>
+        <br/>
+        <div class="form-group">
+            <input class="form-control" autofocus type="number" name="issue" placeholder="Issue" required>
+        </div>
+        <br/>
+        <div class="form-group">
+            <input class="form-control" autofocus type="number" name="pages" placeholder="Pages" required>
+        </div>
+        <br/>
+        <input type="submit" Value="Save" class="btn btn-outline-secondary" style="margin-left: 0.2cm;">                
+    </form>
 {% endblock %}
