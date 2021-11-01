@@ -13,7 +13,7 @@ class People(models.Model):
     id=models.AutoField(primary_key=True)
     name=TextField(max_length=10000, blank=False, default="")
 
-class Jounral(models.Model):
+class Journal(models.Model):
     id=models.AutoField(primary_key=True)
     #name
     name=models.TextField(max_length=10000, blank=False, default="")
