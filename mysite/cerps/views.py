@@ -6,6 +6,7 @@ from django.http import JsonResponse
 from django.shortcuts import HttpResponse, HttpResponseRedirect, render
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
+from datetime import date
 
 from cerps.models import *
 
@@ -37,6 +38,10 @@ def journal(request):
         volume=request.POST['volume']
         issue=request.POST['issue']
         pages=request.POST['pages']
+        if int(pages)<0:
+            return render(request, "cerps/error.html",{
+                'message':"Enter a valid number of pages"
+            } )
 
         journal=Journal()
         journal.name=name
@@ -55,9 +60,21 @@ def journal(request):
 #add and display book
 def book(request):
     if request.method == "POST":
-        chap=request.POST['chap']
-        book_title=request.POST['book_title']
-        chap_title=request.POST['chap_title']
+        book_or_chap=request.POST['chap']
+        if book_or_chap=="book":
+            chap=True
+            book_title=request.POST['book_title']
+            if book_title == "":
+                return render(request, "cerps/error.html",{
+                'message':"Enter book title"
+            } )
+        else:
+            chap=False
+            chap_title=request.POST['chap_title']
+            if chap_title == "":
+                return render(request, "cerps/error.html",{
+                'message':"Enter chapter title"
+            } )
         authors=request.POST['authors']
         authlist=[x.strip() for x in authors.split(',')]
         auth=[]
@@ -73,12 +90,18 @@ def book(request):
                 auth.append(per)
         isbn=request.POST['isbn']
         year=request.POST['year']
+        if int(year)>date.today().year or int(year)<1900:
+            return render(request, "cerps/error.html",{
+                'message':"Enter valid year"
+            } )
         publisher=request.POST['publisher']
 
         book=Book()
-        book.book_chap=chap
-        book.book_title=book_title
-        book.chap_title=chap_title
+        book.book_bool=chap
+        if book:
+            book.book_title=book_title
+        else:
+            book.chap_title=chap_title
         book.year=year
         book.isbn=isbn
         book.publisher=publisher
@@ -109,8 +132,12 @@ def patent(request):
                 person.save()
                 per=People.objects.get(name=x)
                 auth.append(per)
-
         year=request.POST['year']
+        if int(year)>date.today().year or int(year)<1900:
+            return render(request, "cerps/error.html",{
+                'message':"Enter valid year"
+            } )
+
         patent=Patent()
         patent.agency=agency
         patent.title=title
@@ -143,11 +170,17 @@ def grant(request):
                 person.save()
                 per=People.objects.get(name=x)
                 auth.append(per)
+        budget=request.POST['budget']
+        duration_from=request.POST['from']
+        duration_to=request.POST['to']
 
         grant=Grant()
         grant.agency=agency
         grant.title=title
         grant.pi=pi
+        grant.budget=budget
+        grant.duaration_from=duration_from
+        grant.duration_to=duration_to
         grant.save()
         for x in auth:
             grant.co_investigators.add(x)
@@ -163,7 +196,11 @@ def award(request):
         award_title=request.POST['award']
         agency=request.POST['agency']
         year=request.POST['year']
-        
+        if int(year)>date.today().year or int(year)<1900:
+            return render(request, "cerps/error.html",{
+                'message':"Enter valid year"
+            } )
+
         award=Award()
         award.name=name
         award.award=award_title

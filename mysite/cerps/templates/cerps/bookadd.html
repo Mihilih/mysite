@@ -9,15 +9,20 @@
     <form action="{% url 'book' %}" method="POST">
         {% csrf_token %}
         <div class="form-group">
-            <input class="form-control" autofocus type="text" name="chap" placeholder="Book chapter" required>
+            <select class="form-control col-md-3" name="chap" placeholder="Book or chapter">
+                <option value='book'>Book</option>
+                <option value='chapter'>Chapter</option>
+            </select>
         </div>
         <br/>
         <div class="form-group">
-            <input class="form-control" autofocus type="text" name="book_title" placeholder="Book title" required>
+            <input class="form-control" autofocus type="text" name="book_title" placeholder="Book title">
         </div>
         <br/>
+        Or
+        <br/><br/>
         <div class="form-group">
-            <input class="form-control" autofocus type="text" name="chap_title" placeholder="Chapter title" required>
+            <input class="form-control" autofocus type="text" name="chap_title" placeholder="Chapter title">
         </div>
         <br/>
         <div class="form-group">

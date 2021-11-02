@@ -31,11 +31,11 @@ class Journal(models.Model):
 class Book(models.Model):
     id=models.AutoField(primary_key=True)
     #book/book chapter
-    book_chap=models.TextField(max_length=10000, blank=False, default="")
+    book_bool=models.BooleanField(blank=False)
     #book title
-    book_title=models.TextField(max_length=10000, blank=False, default="")
+    book_title=models.TextField(max_length=10000)
     #chapter title
-    chap_title=models.TextField(max_length=10000, blank=False, default="")
+    chap_title=models.TextField(max_length=10000)
     #authors
     authors=models.ManyToManyField("People", related_name="book")
     #year
@@ -70,7 +70,10 @@ class Grant(models.Model):
     #co-inversigators
     co_investigators =models.ManyToManyField("People", related_name="grant")
     #budgets
+    budget=models.IntegerField(blank=False, default=0)
     #duration
+    duaration_from=models.DateField(blank=False, default=0)
+    duration_to=models.DateField(blank=False, default=0)
 
 class Award(models.Model):
     id=models.AutoField(primary_key=True)

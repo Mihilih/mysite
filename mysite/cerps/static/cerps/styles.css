@@ -2,16 +2,6 @@
 box-sizing: border-box;
 }
 
-.row {
-display: flex;
-}
-
-.col {
-flex: 50%;
-padding: 10px;
-height: 300px;
-}
-
 .image {
 display: block;
 margin-left: auto;
@@ -59,4 +49,13 @@ body {
     background-color: #4e0404;
     border-color: #4e0404;
     color: white;
+}
+html{ 
+    overflow-y: scroll;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
 }
