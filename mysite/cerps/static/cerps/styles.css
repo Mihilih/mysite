@@ -22,7 +22,7 @@ float: left;
 }
 
 .navbar-custom {
-    background-color:#4e0404;
+    background-color:#5a0b0b;
 }
 
 .header{
@@ -46,8 +46,8 @@ body {
 }
 
 .brown{
-    background-color: #4e0404;
-    border-color: #4e0404;
+    background-color: #5a0b0b;
+    border-color: #5a0b0b;
     color: white;
 }
 html{ 
@@ -58,4 +58,9 @@ html{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 20px;
+}
+
+.accordion-button:not(.collapsed) {
+    color: white;
+    background-color: #5a0b0b;
 }
