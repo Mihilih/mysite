@@ -17,6 +17,20 @@ def index(request):
 def add(request):
     return render(request, "cerps/add.html")
 
+def view(request):
+    journals=Journal.objects.all()
+    books=Book.objects.all()
+    patents=Patent.objects.all()
+    grants=Grant.objects.all()
+    awards=Award.objects.all()
+    return render(request, "cerps/view.html",{
+        'journallist':journals,
+        'booklist':books,
+        'patentlist':patents,
+        'grantlist':grants,
+        'awardlist':awards,
+    })
+
 #add and display journal
 def journal(request):
     if request.method == "POST":
@@ -61,16 +75,16 @@ def journal(request):
 def book(request):
     if request.method == "POST":
         book_or_chap=request.POST['chap']
+        book_title=request.POST['book_title']
+        chap_title=request.POST['chap_title']
         if book_or_chap=="book":
             chap=True
-            book_title=request.POST['book_title']
             if book_title == "":
                 return render(request, "cerps/error.html",{
                 'message':"Enter book title"
             } )
         else:
             chap=False
-            chap_title=request.POST['chap_title']
             if chap_title == "":
                 return render(request, "cerps/error.html",{
                 'message':"Enter chapter title"
@@ -98,10 +112,14 @@ def book(request):
 
         book=Book()
         book.book_bool=chap
-        if book:
+        if chap:
             book.book_title=book_title
+            if chap_title is not "":
+                book.chapter_title=chap_title
         else:
-            book.chap_title=chap_title
+            book.chapter_title=chap_title
+            if book_title is not "":
+                book.book_title=book_title
         book.year=year
         book.isbn=isbn
         book.publisher=publisher
@@ -179,7 +197,7 @@ def grant(request):
         grant.title=title
         grant.pi=pi
         grant.budget=budget
-        grant.duaration_from=duration_from
+        grant.duration_from=duration_from
         grant.duration_to=duration_to
         grant.save()
         for x in auth:

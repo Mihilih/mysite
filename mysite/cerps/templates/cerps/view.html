@@ -1,0 +1,235 @@
+{% extends "cerps/layout.html" %}
+{% load static %}
+
+
+{% block body %}
+
+<div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Journal publications
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Authors</th>
+                    <th scope="col">Volume</th>
+                    <th scope="col">Issue</th>
+                    <th scope="col">Pages</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {%for journal in journallist%}
+                
+                    <tr>
+                        <td scope="row">{{journal.name}}</td>
+                        <td scope="row">{{journal.title}}</td>
+                        <td scope="row">{{journal.authors}}</td>
+                        <td scope="row">{{journal.volume}}</td>
+                        <td scope="row">{{journal.issue}}</td>
+                        <td scope="row">{{journal.pages}}</td>
+                    </tr>
+                {%empty%}
+                    <tr>
+                        <td>No Book Publications</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                {%endfor%}
+                </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Book publications
+        </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                    <th scope="col">Book or Chapter</th>
+                    <th scope="col">Book title</th>
+                    <th scope="col">Chapter title</th>
+                    <th scope="col">Authors</th>
+                    <th scope="col">Year</th>
+                    <th scope="col">Publisher</th>
+                    <th scope="col">ISBN</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {%for book in booklist%}
+                
+                    <tr>
+                    <td scope="row">
+                        {%if book.book_bool is True%}
+                            Book
+                        {%else%}
+                            Chapter
+                        {%endif%}
+                    </td>
+                    <td scope="row">{{book.book_title}}</td>
+                    <td scope="row">{{book.chapter_title}}</td>
+                    <td scope="row">{{book.authors}}</td>
+                    <td scope="row">{{book.year}}</td>
+                    <td scope="row">{{book.publisher}}</td>
+                    <td scope="row">{{book.isbn}}</td>
+                    </tr>
+                {%empty%}
+                    <tr>
+                        <td>No Book Publications</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                {%endfor%}
+                </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Patents
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                    <th scope="col">Agency</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Number</th>
+                    <th scope="col">Authors</th>
+                    <th scope="col">Year</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {%for patent in patentlist%}
+                    <tr>
+                    <td scope="row">{{patent.agency}}</td>
+                    <td scope="row">{{patent.title}}</td>
+                    <td scope="row">{{patent.number}}</td>
+                    <td scope="row">{{patent.authors}}</td>
+                    <td scope="row">{{patent.year}}</td>
+                    </tr>
+                {%empty%}
+                    <tr>
+                        <td>No Patents</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                {%endfor%}
+                </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFour">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+            Reaearch grants
+          </button>
+        </h2>
+        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                    <th scope="col">Agency</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">PI</th>
+                    <th scope="col">Co-investigators</th>
+                    <th scope="col">Budget</th>
+                    <th scope="col">Duration</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {%for grant in grantlist%}
+                    <tr>
+                    <td scope="row">{{grant.agency}}</td>
+                    <td scope="row">{{grant.title}}</td>
+                    <td scope="row">{{grant.pi}}</td>
+                    <td scope="row">{{grant.co_investigators}}</td>
+                    <td scope="row">Rs.{{grant.budget}}/=</td>
+                    <td scope="row">From {{grant.duration_from}} to {{grant.duration_to}}</td>
+                    </tr>
+                {%empty%}
+                    <tr>
+                        <td>No Research Grants</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                {%endfor%}
+                </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFive">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+            Research awards
+          </button>
+        </h2>
+        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Award</th>
+                    <th scope="col">Year</th>
+                    <th scope="col">Agency</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {%for award in awardlist%}
+                    <tr>
+                    <td scope="row">{{award.name}}</td>
+                    <td scope="row">{{award.award}}</td>
+                    <td scope="row">{{award.year}}</td>
+                    <td scope="row">{{award.agency}}</td>
+                    </tr>
+                {%empty%}
+                    <tr>
+                        <td>No Research Awards</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                {%endfor%}
+                </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+  </div>
+
+
+
+
+{% endblock %}
