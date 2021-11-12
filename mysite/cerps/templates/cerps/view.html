@@ -172,7 +172,7 @@
                     <td scope="row">{{grant.pi}}</td>
                     <td scope="row">{%for investigator in grant.co_investigators.all%}{{investigator.name}}<br/>{%endfor%}</td>
                     <td scope="row">Rs.{{grant.budget}}/=</td>
-                    <td scope="row">From {{grant.duration_from}} to {{grant.duration_to}}</td>
+                    <td scope="row">From: {{grant.duration_from}} &nbsp;  To: {{grant.duration_to}}</td>
                     </tr>
                 {%empty%}
                     <tr>

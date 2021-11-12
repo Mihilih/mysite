@@ -112,7 +112,7 @@
             // DOMContentLoaded  end
             </script>
           
-            <script>"use strict";
+            <!--<script>"use strict";
             !function() {
                 var t = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNmU0YmJhODQ3N2RjMzk0YzgwZjU3OSIsInRva2VuVHlwZSI6InB1YmxpYyIsImlhdCI6MTYzNDYxODMwMSwiZXhwIjoxNDI0OTAxODMwMX0.05Y2XtKiMMHp1z7zyEQOy29Fc25_MXv1k7sUA-yJOxw";
                 function e() {
@@ -123,7 +123,7 @@
                 }
                 "complete" === document.readyState ? e() : window.attachEvent ? window.attachEvent("onload", e) : window.addEventListener("load", e, !1);
             }();
-            </script>
+            </script>-->
   
         {% block script %}
             
@@ -131,7 +131,7 @@
         
     </head>
     <body style="width: 100%;">
-        <img src="{% static 'cerps/banner.jpg' %}" alt="Hi!" class="image"/>
+        <img src="{% static 'cerps/banner.png' %}" alt="Hi!" class="image"/>
 
         <nav class="navbar navbar-expand-lg navbar-dark brown" style=" width: 100%;">
           <div class="container-fluid brown" >
@@ -146,12 +146,12 @@
              <li class="nav-item dropdown">
                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">  About  </a>
                  <ul class="dropdown-menu">
-                 <li><a class="dropdown-item" href="#"> History </a></li>
-                 <li><a class="dropdown-item" href="#"> Vision and Mission </a></li>
+                 <li><a class="dropdown-item" href="{% url 'history' %}"> History </a></li>
+                 <li><a class="dropdown-item" href="{% url 'vision_mission' %}"> Vision and Mission </a></li>
                  <li><a class="dropdown-item dropdown-toggle" href="#"> People</a>
                     <ul class="submenu dropdown-menu">
-                     <li><a class="dropdown-item" href="#">Staff</a></li>
-                     <li><a class="dropdown-item" href="#">Program Coordinators</a></li>
+                     <li><a class="dropdown-item" href="{% url 'staff' %}">Staff</a></li>
+                     <li><a class="dropdown-item" href="{% url 'program_coor' %}">Program Coordinators</a></li>
                      <li><a class="dropdown-item dropdown-toggle" href="#">Submenu item 3 </a>
                        <ul class="submenu dropdown-menu">
                          <li><a class="dropdown-item" href="#">Multi level 1</a></li>
@@ -160,35 +160,35 @@
                      </li>
                   </ul>
                  </li>
-                 <li><a class="dropdown-item" href="#"> Contact</a></li>
+                 <li><a class="dropdown-item" href="{% url 'contact' %}"> Contact</a></li>
                  </ul>
              </li>
 
              <li class="nav-item dropdown">
                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">  Postgraduate Studies  </a>
                  <ul class="dropdown-menu">
-                 <li><a class="dropdown-item" href="#"> Introduction </a></li>
-                 <li><a class="dropdown-item" href="#"> Taught Programs </a></li>
-                 <li><a class="dropdown-item" href="#"> Research Programs </a></li>
+                 <li><a class="dropdown-item" href="{% url 'introduction' %}"> Introduction </a></li>
+                 <li><a class="dropdown-item" href="{% url 'taught_pro' %}"> Taught Programs </a></li>
+                 <li><a class="dropdown-item" href="{% url 'research_pro' %}"> Research Programs </a></li>
                  <li><a class="dropdown-item dropdown-toggle" href="#"> Admission </a>
                     <ul class="submenu dropdown-menu">
-                     <li><a class="dropdown-item" href="#">Admission Requirements</a></li>
-                     <li><a class="dropdown-item" href="#">Application Process</a></li>
-                     <li><a class="dropdown-item" href="#">Registration</a></li>
+                     <li><a class="dropdown-item" href="{% url 'add_req' %}">Admission Requirements</a></li>
+                     <li><a class="dropdown-item" href="{% url 'app_process' %}">Application Process</a></li>
+                     <li><a class="dropdown-item" href="{% url 'registration' %}">Registration</a></li>
                   </ul>
                  </li>
-                 <li><a class="dropdown-item" href="#"> Tuition and other fees </a></li>
+                 <li><a class="dropdown-item" href="{% url 'fees' %}"> Tuition and other fees </a></li>
                  <li><a class="dropdown-item dropdown-toggle" href="#"> Progression </a>
                     <ul class="submenu dropdown-menu">
-                     <li><a class="dropdown-item" href="#">Progress Review</a></li>
-                     <li><a class="dropdown-item" href="#">Minimum and Maximum Durations</a></li>
-                     <li><a class="dropdown-item" href="#">Course Requirements</a></li>
+                     <li><a class="dropdown-item" href="{% url 'progress_rev' %}">Progress Review</a></li>
+                     <li><a class="dropdown-item" href="{% url 'min_max_dur' %}">Minimum and Maximum Durations</a></li>
+                     <li><a class="dropdown-item" href="{% url 'course_req' %}">Course Requirements</a></li>
                   </ul>
                  </li>
                  <li><a class="dropdown-item dropdown-toggle" href="#"> Completion </a>
                     <ul class="submenu dropdown-menu">
-                     <li><a class="dropdown-item" href="#">Format, Submission and Evaluation of Thesis</a></li>
-                     <li><a class="dropdown-item" href="#">Appointment of Examiners for Thesis</a></li>
+                     <li><a class="dropdown-item" href="{% url 'thesis_format' %}">Format, Submission and Evaluation of Thesis</a></li>
+                     <li><a class="dropdown-item" href="{% url 'thesis_examiners' %}">Appointment of Examiners for Thesis</a></li>
                   </ul>
                  </li>
                  </ul>
@@ -197,38 +197,38 @@
              <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">  Research  </a>
                 <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#"> Research Areas </a></li>
-                <li><a class="dropdown-item" href="#"> Research Laboratories </a></li>
-                <li><a class="dropdown-item" href="#"> Ongoing Research</a></li>
-                <li><a class="dropdown-item" href="#"> Collaborating Partners</a></li>
+                <li><a class="dropdown-item" href="{% url 'research_areas' %}"> Research Areas </a></li>
+                <li><a class="dropdown-item" href="{% url 'research_labs' %}"> Research Laboratories </a></li>
+                <li><a class="dropdown-item" href="{% url 'ongoing' %}"> Ongoing Research</a></li>
+                <li><a class="dropdown-item" href="{% url 'collab_partners' %}"> Collaborating Partners</a></li>
                 </ul>
             </li>
 
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">  Funding  </a>
                 <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#"> University Research Grants </a></li>
-                <li><a class="dropdown-item" href="#"> Publication Facilitation </a></li>
-                <li><a class="dropdown-item" href="#"> Other Funding Agencies</a></li>
+                <li><a class="dropdown-item" href="{% url 'research_grants' %}"> University Research Grants </a></li>
+                <li><a class="dropdown-item" href="{% url 'publication_facilitation' %}"> Publication Facilitation </a></li>
+                <li><a class="dropdown-item" href="{% url 'funding_ag' %}"> Other Funding Agencies</a></li>
                 </ul>
             </li>
 
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">  Awards  </a>
                 <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#"> Faculty Research Excellence Award </a></li>
-                <li><a class="dropdown-item" href="#"> University Research Excellence Award </a></li>
-                <li><a class="dropdown-item" href="#"> Research Performance Scheme</a></li>
-                <li><a class="dropdown-item" href="#"> CVCD Award</a></li>
+                <li><a class="dropdown-item" href="{% url 'faculty_excel' %}"> Faculty Research Excellence Award </a></li>
+                <li><a class="dropdown-item" href="{% url 'university_excel' %}"> University Research Excellence Award </a></li>
+                <li><a class="dropdown-item" href="{% url 'research_performance' %}"> Research Performance Scheme</a></li>
+                <li><a class="dropdown-item" href="{% url 'cvcd' %}"> CVCD Award</a></li>
                 </ul>
             </li>
 
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">  Downloads  </a>
                 <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#"> Regulations </a></li>
-                <li><a class="dropdown-item" href="#"> For Staff </a></li>
-                <li><a class="dropdown-item" href="#"> For Students</a></li>
+                <li><a class="dropdown-item" href="{% url 'regulations' %}"> Regulations </a></li>
+                <li><a class="dropdown-item" href="{% url 'for_staff' %}"> For Staff </a></li>
+                <li><a class="dropdown-item" href="{% url 'for_students' %}"> For Students</a></li>
                 </ul>
             </li>
 
@@ -252,7 +252,7 @@
             {% endblock %}
         </div>
 
-        <footer class="text-center text-lg-start" style="background-color: #5a0b0b; color: white;">
+        <footer class="text-center text-lg-start" style="background-color: #530d0d; color: white;">
           <!-- Section: Social media -->
           <section
             class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"

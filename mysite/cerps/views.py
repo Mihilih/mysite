@@ -209,6 +209,7 @@ def grant(request):
 
 #add and display award
 def award(request):
+
     if request.method == "POST":
         name=request.POST['name']
         award_title=request.POST['award']
@@ -229,3 +230,97 @@ def award(request):
         pass
     else:
         return render(request, "cerps/awardadd.html")
+
+def history(request):
+    return render(request, "cerps/history.html")
+
+def vision_mission(request):
+    return render(request, "cerps/vision_mission.html")
+
+def staff(request):
+    return render(request, "cerps/staff.html")
+
+def program_coor(request):
+    return render(request, "cerps/program_coor.html")
+
+def contact(request):
+    return render(request, "cerps/contact.html")
+
+def introduction(request):
+    return render(request, "cerps/introduction.html")
+
+def taught_pro(request):
+    return render(request, "cerps/taught_pro.html")
+
+def research_pro(request):
+    return render(request, "cerps/research_pro.html")
+
+def add_req(request):
+    return render(request, "cerps/add_req.html")
+
+def app_process(request):
+    return render(request, "cerps/app_process.html")
+
+def registration(request):
+    return render(request, "cerps/registration.html")
+
+def fees(request):
+    return render(request, "cerps/fees.html")
+
+def progress_rev(request):
+    return render(request, "cerps/progress_rev.html")
+
+def min_max_dur(request):
+    return render(request, "cerps/min_max_dur.html")
+
+def course_req(request):
+    return render(request, "cerps/course_req.html")
+
+def thesis_format(request):
+    return render(request, "cerps/thesis_format.html")
+
+def thesis_examiners(request):
+    return render(request, "cerps/thesis_examiners.html")
+
+def research_areas(request):
+    return render(request, "cerps/research_areas.html")
+    
+def research_labs(request):
+    return render(request, "cerps/research_labs.html")
+    
+def ongoing(request):
+    return render(request, "cerps/ongoing.html")
+    
+def collab_partners(request):
+    return render(request, "cerps/collab_partners.html")
+    
+def research_grants(request):
+    return render(request, "cerps/research_grants.html")
+    
+def publication_facilitation(request):
+    return render(request, "cerps/publication_facilitation.html")
+    
+def funding_ag(request):
+    return render(request, "cerps/funding_ag.html")
+    
+def faculty_excel(request):
+    return render(request, "cerps/faculty_excel.html")
+    
+def university_excel(request):
+    return render(request, "cerps/university_excel.html")
+    
+def research_performance(request):
+    return render(request, "cerps/research_performance.html")
+    
+def cvcd(request):
+    return render(request, "cerps/cvcd.html")
+    
+def regulations(request):
+    return render(request, "cerps/regulations.html")
+    
+def for_staff(request):
+    return render(request, "cerps/for_staff.html")
+    
+def for_students(request):
+    return render(request, "cerps/for_students.html")
+        

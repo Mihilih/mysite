@@ -1,12 +1,15 @@
 {% extends "cerps/layout.html" %}
 {% load static %}
 
+{% block script %}
+
+{% endblock %}
 
 {% block body %}
 <h1 class="header">Home</h1>
 
 <div class="grid-container">
-  <div id="carouselExampleCaptions" class="carousel slide grid-child" data-bs-ride="carousel">
+  <div id="carouselExampleCaptions" class="carousel slide grid-child" data-bs-ride="carousel" style="display: flex; flex-wrap: wrap;">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -155,28 +158,28 @@
       </button>
     </div>
     <div class="grid-child" style="display: flex; flex-wrap: wrap;">
-      <div class="card" style="width: 14rem;">
-          <img src="{% static 'cerps/banner.jpg' %}" class="card-img-top" alt="...">
+      <div class="card" style="width: 14rem;width: 32%;">
+          <img src="{% static 'cerps/news.jpg' %}" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
+            <h5 class="card-title">News</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn brown" >Go somewhere</a>
+            <a href="#" class="btn brown" >Read more</a>
           </div>
         </div>
-        <div class="card" style="width: 14rem;" style="display: flex; flex-wrap: wrap;">
-          <img src="{% static 'cerps/banner.jpg' %}" class="card-img-top" alt="...">
+        <div class="card" style="width: 14rem;width: 32%;" >
+          <img src="{% static 'cerps/achievements.jpg' %}" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
+            <h5 class="card-title">Achievements</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn brown" >Go somewhere</a>
+            <a href="#" class="btn brown" >Read more</a>
           </div>
         </div>
-        <div class="card" style="width: 14rem;" style="display: flex; flex-wrap: wrap;">
-          <img src="{% static 'cerps/banner.jpg' %}" class="card-img-top" alt="...">
+        <div class="card" style="width: 14rem;width: 32%;">
+          <img src="{% static 'cerps/events.jpg' %}" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
+            <h5 class="card-title">Events</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn brown" >Go somewhere</a>
+            <a href="#" class="btn brown" >Read more</a>
           </div>
         </div>
     </div>
