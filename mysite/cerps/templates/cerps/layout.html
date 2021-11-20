@@ -254,38 +254,7 @@
 
         <footer class="text-center text-lg-start" style="background-color: #530d0d; color: white;">
           <!-- Section: Social media -->
-          <section
-            class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
-          >
-            <!-- Left -->
-            <div class="me-5 d-none d-lg-block">
-              <span>Something 1</span>
-            </div>
-            <!-- Left -->
-        
-            <!-- Right -->
-            <div>
-              <a href="" class="me-4 text-reset">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="" class="me-4 text-reset">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="" class="me-4 text-reset">
-                <i class="fab fa-google"></i>
-              </a>
-              <a href="" class="me-4 text-reset">
-                <i class="fab fa-instagram"></i>
-              </a>
-              <a href="" class="me-4 text-reset">
-                <i class="fab fa-linkedin"></i>
-              </a>
-              <a href="" class="me-4 text-reset">
-                <i class="fab fa-github"></i>
-              </a>
-            </div>
-            <!-- Right -->
-          </section>
+          
           <!-- Section: Social media -->
         
           <!-- Section: Links  -->
@@ -294,55 +263,61 @@
               <!-- Grid row -->
               <div class="row mt-3">
                 <!-- Grid column -->
-                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                   <!-- Content -->
                   <h6 class="text-uppercase fw-bold mb-4">
-                    <i class="fas fa-gem me-3"></i>CERPS
+                    <i class="fas fa-gem me-3" style="font-size: larger;">CERPS</i>
                   </h6>
                   <p>
-                    Some info about CERPS
-                  </p>
-                </div>
-                <!-- Grid column -->
-        
-                <!-- Grid column -->
-                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                  <!-- Links -->
-                  <h6 class="text-uppercase fw-bold mb-4">
-                    Something 2
-                  </h6>
-                  <p>
-                    <a href="#!" class="text-reset">1</a>
-                  </p>
-                  <p>
-                    <a href="#!" class="text-reset">2</a>
-                  </p>
-                  <p>
-                    <a href="#!" class="text-reset">3</a>
-                  </p>
-                  <p>
-                    <a href="#!" class="text-reset">4</a>
-                  </p>
+                    Promoting engineering research and postgraduate studies
+                  </b>
                 </div>
                 <!-- Grid column -->
         
                 <!-- Grid column -->
                 <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                   <!-- Links -->
-                  <h6 class="text-uppercase fw-bold mb-4">
-                    Something 3
+                  <h6 class="text-uppercase fw-bold mb-4" style="font-size: larger;">
+                    Go to
+                  </h6>
+                  
+                    <p><a class="text-reset fw-bold" href="{% url 'index' %}" class="text-reset">Home</a></p>
+                  
+                    <p><a class="text-reset fw-bold" href="{% url 'history' %}" class="text-reset">About</a></p>
+                 
+                    <p><a class="text-reset fw-bold" href="{% url 'introduction' %}" class="text-reset">Postgraduate studies</a></p>
+                  
+                    <p><a class="text-reset fw-bold" href="{% url 'research_areas' %}" class="text-reset">Research</a></p>
+                  
+                    <p><a class="text-reset fw-bold" href="{% url 'research_grants' %}" class="text-reset">Funding</a></p>
+                  
+                    <p><a class="text-reset fw-bold" href="{% url 'faculty_excel' %}" class="text-reset">Awards</a></p>
+                  
+                    <p><a class="text-reset fw-bold" href="{% url 'regulations' %}" class="text-reset">Downloads</a></p>
+                  
+                </div>
+                <!-- Grid column -->
+        
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                  <!-- Links -->
+                  <h6 class="text-uppercase fw-bold mb-4" style="font-size: larger;">
+                    Quick Links
                   </h6>
                   <p>
-                    <a href="#!" class="text-reset">1</a>
+                    <a class="text-reset fw-bold" href="#!" class="text-reset">University of Peradeniya</a>
                   </p>
                   <p>
-                    <a href="#!" class="text-reset">2</a>
+                    <a class="text-reset fw-bold" href="#!" class="text-reset">Faculty of Engineering</a>
                   </p>
                   <p>
-                    <a href="#!" class="text-reset">3</a>
+                    <a class="text-reset fw-bold" href="#!" class="text-reset">University Research Council</a>
                   </p>
                   <p>
-                    <a href="#!" class="text-reset">4</a>
+                    <a class="text-reset fw-bold" href="#!" class="text-reset">International Relations Office</a>
+                  </p>
+                  <p>
+                    <a class="text-reset fw-bold" href="#!" class="text-reset">Ethical Review Committee</a>
                   </p>
                 </div>
                 <!-- Grid column -->
@@ -350,16 +325,18 @@
                 <!-- Grid column -->
                 <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                   <!-- Links -->
-                  <h6 class="text-uppercase fw-bold mb-4">
+                  <h6 class="text-uppercase fw-bold mb-4" style="font-size: larger;">
                     Contact
                   </h6>
-                  <p><i class="fas fa-home me-3"></i> Address</p>
-                  <p>
-                    <i class="fas fa-envelope me-3"></i>
-                    Email
-                  </p>
-                  <p><i class="fas fa-phone me-3"></i>No 1</p>
-                  <p><i class="fas fa-print me-3"></i>No 2</p>
+                  <i class="fas fa-home me-3">Center for Engineering,</i><br/>
+                  <i class="fas fa-home me-3">Research and postgraduate studies,</i><br/>
+                  <i class="fas fa-home me-3">Faculty of Engineering,</i><br/>
+                  <i class="fas fa-home me-3">University of Peradeniya,</i><br/>
+                  <i class="fas fa-home me-3">Peradeniya 20400.</i><br/><br/>
+                  
+                  <i class="fas fa-envelope me-3">Email: <a class="text-reset fw-bold" href="mailto:cerps@pdn.ac.lk">cerps@pdn.ac.lk</a></i><br/><br/>
+                  
+                  <i class="fas fa-phone me-3">Tel:</i>
                 </div>
                 <!-- Grid column -->
               </div>
@@ -367,11 +344,11 @@
             </div>
           </section>
           <!-- Section: Links  -->
-        
+          <hr>
           <!-- Copyright -->
           <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-            © 2021 Copyright:
-            <a class="text-reset fw-bold" href="#">Me</a>
+            Copyright © 2021 - Center for Engineering Research and Postgraduate Studies - 
+            <a class="text-reset fw-bold" href="https://eng.pdn.ac.lk/">Faculty of Engineering</a>  - <a class="text-reset fw-bold" href="https://www.pdn.ac.lk/">University of Peradeniya</a> - All Rights Reserved
           </div>
           <!-- Copyright -->
         </footer>
