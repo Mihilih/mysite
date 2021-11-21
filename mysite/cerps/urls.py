@@ -49,4 +49,6 @@ urlpatterns = [
     path("news_ind/<str:news_id>", views.news_ind, name="news_ind"),
     path("event_ind/<str:event_id>", views.event_ind, name="event_ind"),
     path("achievement_ind/<str:achievement_id>", views.achievement_ind, name="achievement_ind"),
+    path("login", views.login_view, name="login"),
+    path("logout", views.logout_view, name="logout"),
 ]

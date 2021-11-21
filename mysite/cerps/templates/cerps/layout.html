@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>CERPS</title>
+        <title>CERPS {% block title %}{% endblock %}</title>
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -237,9 +237,19 @@
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="{% url 'view' %}">View</a>
             </li>
+            {% if user.is_authenticated %}
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="{% url 'add' %}">Add</a>
             </li>
+            
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'logout' %}">Logout</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Login</a>
+            </li>
+            {% endif %}
            </ul>
            </ul>
            
@@ -305,10 +315,10 @@
                     Quick Links
                   </h6>
                   <p>
-                    <a class="text-reset fw-bold" href="#!" class="text-reset">University of Peradeniya</a>
+                    <a class="text-reset fw-bold" href="https://www.pdn.ac.lk/" class="text-reset">University of Peradeniya</a>
                   </p>
                   <p>
-                    <a class="text-reset fw-bold" href="#!" class="text-reset">Faculty of Engineering</a>
+                    <a class="text-reset fw-bold" href="https://eng.pdn.ac.lk/" class="text-reset">Faculty of Engineering</a>
                   </p>
                   <p>
                     <a class="text-reset fw-bold" href="#!" class="text-reset">University Research Council</a>
