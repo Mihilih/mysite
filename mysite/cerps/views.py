@@ -324,3 +324,20 @@ def for_staff(request):
 def for_students(request):
     return render(request, "cerps/for_students.html")
         
+def news(request):
+    return render(request, "cerps/news.html")
+
+def events(request):
+    return render(request, "cerps/events.html")
+
+def achievements(request):
+    return render(request, "cerps/achievements.html")
+
+def news_ind(request, news_id):
+    return render(request, "cerps/news{0}.html".format(news_id))
+
+def event_ind(request, event_id):
+    return render(request, "cerps/event{0}.html".format(event_id))
+
+def achievement_ind(request, achievement_id):
+    return render(request, "cerps/achievement{0}.html".format(achievement_id))

@@ -43,5 +43,10 @@ urlpatterns = [
     path("regulations", views.regulations, name="regulations"),
     path("for_staff", views.for_staff, name="for_staff"),
     path("for_students", views.for_students, name="for_students"),
-    
+    path("news", views.news, name="news"),
+    path("events", views.events, name="events"),
+    path("achievements", views.achievements, name="achievements"),
+    path("news_ind/<str:news_id>", views.news_ind, name="news_ind"),
+    path("event_ind/<str:event_id>", views.event_ind, name="event_ind"),
+    path("achievement_ind/<str:achievement_id>", views.achievement_ind, name="achievement_ind"),
 ]
