@@ -1,8 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
-from django.db.models.deletion import CASCADE
 from django.db.models.fields import TextField
-#from django.core.validators import MaxValueValidator
 
 # Create your models here.
 class User(AbstractUser):
@@ -17,73 +15,45 @@ class People(models.Model):
 
 class Journal(models.Model):
     id=models.AutoField(primary_key=True)
-    #name
     name=models.TextField(max_length=10000, blank=False, default="")
-    #title
     title=models.TextField(max_length=10000, blank=False, default="")
-    #authors
     authors=models.ManyToManyField("People", related_name="journal")
-    #volume
     volume=models.IntegerField(blank=False, default=0)
-    #issue
     issue=models.IntegerField(blank=False, default=0)
-    #pages
     pages=models.IntegerField(blank=False, default=0)
 
 class Book(models.Model):
     id=models.AutoField(primary_key=True)
-    #book/book chapter
-    book_bool=models.BooleanField(blank=False)
-    #book title
+    book_bool=models.BooleanField(blank=False)#book/book chapter
     book_title=models.TextField(max_length=10000)
-    #chapter title
     chapter_title=models.TextField(max_length=10000)
-    #authors
     authors=models.ManyToManyField("People", related_name="book")
-    #year
     year=models.IntegerField(blank=False, default=0)
-    #publisher
     publisher=models.TextField(max_length=10000, blank=False, default="")
-    #ISBN
     isbn=models.TextField(max_length=10000, blank=False, default="")
     
 
 class Patent(models.Model):
     id=models.AutoField(primary_key=True)
-    #filing agency
-    agency=models.TextField(max_length=10000, blank=False, default="")
-    #title
+    agency=models.TextField(max_length=10000, blank=False, default="")#filing agency
     title=models.TextField(max_length=10000, blank=False, default="")
-    #number
     number=models.IntegerField(blank=False, default=0)
-    #authors
     authors=models.ManyToManyField("People", related_name="patent")
-    #year
     year=models.IntegerField(blank=False, default=0)
 
 class Grant(models.Model):
     id=models.AutoField(primary_key=True)
-    #funding agency
-    agency=models.TextField(max_length=10000, blank=False, default="")
-    #title
+    agency=models.TextField(max_length=10000, blank=False, default="")#funding agency
     title=models.TextField(max_length=10000, blank=False, default="")
-    #name of PI
-    pi=models.TextField(max_length=10000, blank=False, default="")
-    #co-inversigators
+    pi=models.TextField(max_length=10000, blank=False, default="")#name of PI
     co_investigators =models.ManyToManyField("People", related_name="grant")
-    #budgets
     budget=models.IntegerField(blank=False, default=0)
-    #duration
     duration_from=models.DateField(blank=False, default=0)
     duration_to=models.DateField(blank=False, default=0)
 
 class Award(models.Model):
     id=models.AutoField(primary_key=True)
-    #name
     name=models.TextField(max_length=10000, blank=False, default="")
-    #award
     award=models.TextField(max_length=10000, blank=False, default="")
-    #awarding agency
-    agency=models.TextField(max_length=10000, blank=False, default="")
-    #year
+    agency=models.TextField(max_length=10000, blank=False, default="")#awarding agency
     year=models.IntegerField(blank=False, default=0)

@@ -8,7 +8,7 @@
 {% block body %}
 
     <h1  style="text-align: center;">New Research Grant</h1>
-    <!--new article form-->
+    <!--new grant form-->
     <form action="{% url 'grant' %}" method="POST">
         {% csrf_token %}
         <div class="form-group">

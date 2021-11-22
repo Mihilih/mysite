@@ -1,5 +1,5 @@
 {% load static %}
-
+<!--Layout-->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -57,32 +57,22 @@
           
           
           <script type="text/javascript">
-          //	window.addEventListener("resize", function() {
-          //		"use strict"; window.location.reload(); 
-          //	});
           
           
             document.addEventListener("DOMContentLoaded", function(){
                   
           
-                /////// Prevent closing from click inside dropdown
+              // Prevent closing from click inside dropdown
               document.querySelectorAll('.dropdown-menu').forEach(function(element){
                 element.addEventListener('click', function (e) {
                   e.stopPropagation();
                 });
               })
-          
-          
-          
               // make it as accordion for smaller screens
               if (window.innerWidth < 992) {
-          
-                // close all inner dropdowns when parent is closed
                 document.querySelectorAll('.navbar .dropdown').forEach(function(everydropdown){
                   everydropdown.addEventListener('hidden.bs.dropdown', function () {
-                    // after dropdown is hidden, then find all submenus
                       this.querySelectorAll('.submenu').forEach(function(everysubmenu){
-                        // hide every submenu as well
                         everysubmenu.style.display = 'none';
                       });
                   })
@@ -106,13 +96,12 @@
                   });
                 })
               }
-              // end if innerWidth
           
             }); 
-            // DOMContentLoaded  end
             </script>
           
-            <!--<script>"use strict";
+            <!--Search button-->
+            <script>"use strict";
             !function() {
                 var t = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNmU0YmJhODQ3N2RjMzk0YzgwZjU3OSIsInRva2VuVHlwZSI6InB1YmxpYyIsImlhdCI6MTYzNDYxODMwMSwiZXhwIjoxNDI0OTAxODMwMX0.05Y2XtKiMMHp1z7zyEQOy29Fc25_MXv1k7sUA-yJOxw";
                 function e() {
@@ -123,7 +112,7 @@
                 }
                 "complete" === document.readyState ? e() : window.attachEvent ? window.attachEvent("onload", e) : window.addEventListener("load", e, !1);
             }();
-            </script>-->
+            </script>
   
         {% block script %}
             
@@ -133,6 +122,7 @@
     <body style="width: 100%;">
         <img src="{% static 'cerps/banner.png' %}" alt="Hi!" class="image"/>
 
+        <!--Navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark brown" style=" width: 100%;">
           <div class="container-fluid brown" >
              <a class="navbar-brand" href="{% url 'index' %}">Home</a>
@@ -261,20 +251,15 @@
             {% block body %}
             {% endblock %}
         </div>
-
+        <!--Footer-->
         <footer class="text-center text-lg-start" style="background-color: #530d0d; color: white;">
-          <!-- Section: Social media -->
           
-          <!-- Section: Social media -->
-        
-          <!-- Section: Links  -->
           <section class="">
             <div class="container text-center text-md-start mt-5">
-              <!-- Grid row -->
+
               <div class="row mt-3">
-                <!-- Grid column -->
+                
                 <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                  <!-- Content -->
                   <h6 class="text-uppercase fw-bold mb-4">
                     <i class="fas fa-gem me-3" style="font-size: larger;">CERPS</i>
                   </h6>
@@ -282,11 +267,8 @@
                     Promoting engineering research and postgraduate studies
                   </b>
                 </div>
-                <!-- Grid column -->
-        
-                <!-- Grid column -->
+
                 <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                  <!-- Links -->
                   <h6 class="text-uppercase fw-bold mb-4" style="font-size: larger;">
                     Go to
                   </h6>
@@ -306,11 +288,8 @@
                     <p><a class="text-reset fw-bold" href="{% url 'regulations' %}" class="text-reset">Downloads</a></p>
                   
                 </div>
-                <!-- Grid column -->
-        
-                <!-- Grid column -->
+                
                 <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                  <!-- Links -->
                   <h6 class="text-uppercase fw-bold mb-4" style="font-size: larger;">
                     Quick Links
                   </h6>
@@ -330,11 +309,8 @@
                     <a class="text-reset fw-bold" href="#!" class="text-reset">Ethical Review Committee</a>
                   </p>
                 </div>
-                <!-- Grid column -->
-        
-                <!-- Grid column -->
+                
                 <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                  <!-- Links -->
                   <h6 class="text-uppercase fw-bold mb-4" style="font-size: larger;">
                     Contact
                   </h6>
@@ -348,19 +324,19 @@
                   
                   <i class="fas fa-phone me-3">Tel:</i>
                 </div>
-                <!-- Grid column -->
+                
               </div>
-              <!-- Grid row -->
+              
             </div>
           </section>
-          <!-- Section: Links  -->
+          
           <hr>
-          <!-- Copyright -->
+          
           <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
             Copyright © 2021 - Center for Engineering Research and Postgraduate Studies - 
             <a class="text-reset fw-bold" href="https://eng.pdn.ac.lk/">Faculty of Engineering</a>  - <a class="text-reset fw-bold" href="https://www.pdn.ac.lk/">University of Peradeniya</a> - All Rights Reserved
           </div>
-          <!-- Copyright -->
+          
         </footer>
         
     </body>

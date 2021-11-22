@@ -8,7 +8,7 @@
 {% block body %}
 
     <h1  style="text-align: center;">New Patent</h1>
-    <!--new article form-->
+    <!--new patent form-->
     <form action="{% url 'patent' %}" method="POST">
         {% csrf_token %}
         <div class="form-group">
