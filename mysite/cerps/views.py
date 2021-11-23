@@ -40,6 +40,7 @@ def index(request):
 @login_required(login_url='login')
 def add(request):
     return render(request, "cerps/add.html")
+    #link in the research dropdown
 
 def view(request):
     journals=Journal.objects.all()
@@ -54,6 +55,7 @@ def view(request):
         'grantlist':grants,
         'awardlist':awards,
     })
+    #link in the research dropdown
 
 #add journal
 @login_required(login_url='login')
@@ -351,7 +353,6 @@ def research_grants(request):
 #publication facilitation
 def publication_facilitation(request):
     return render(request, "cerps/publication_facilitation.html")
-    \
 
 #other funding agencies
 def funding_ag(request):

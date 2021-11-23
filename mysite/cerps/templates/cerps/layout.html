@@ -191,6 +191,14 @@
                 <li><a class="dropdown-item" href="{% url 'research_labs' %}"> Research Laboratories </a></li>
                 <li><a class="dropdown-item" href="{% url 'ongoing' %}"> Ongoing Research</a></li>
                 <li><a class="dropdown-item" href="{% url 'collab_partners' %}"> Collaborating Partners</a></li>
+                <li><a class="dropdown-item dropdown-toggle" href="#"> Faculty of Engineering Research Information </a>
+                  <ul class="submenu dropdown-menu">
+                   <li><a class="dropdown-item" href="{% url 'view' %}">View</a></li>
+                   {% if user.is_authenticated %}
+                   <li><a class="dropdown-item" href="{% url 'add' %}">Add</a></li>
+                   {% endif %}
+                </ul>
+               </li>
                 </ul>
             </li>
 
@@ -224,20 +232,14 @@
 
            </ul>
            <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url 'view' %}">View</a>
-            </li>
-            {% if user.is_authenticated %}
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url 'add' %}">Add</a>
-            </li>
             
+            {% if user.is_authenticated %}
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="{% url 'logout' %}">Logout</a>
             </li>
             {% else %}
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Login</a>
+              <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Are you the editor?</a>
             </li>
             {% endif %}
            </ul>
