@@ -125,7 +125,7 @@
         <!--Navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark brown" style=" width: 100%;">
           <div class="container-fluid brown" >
-             <a class="navbar-brand" href="{% url 'index' %}">Home</a>
+             <a class="navbar-brand fw-bold" href="{% url 'index' %}">Home</a>
            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav"  aria-expanded="false" aria-label="Toggle navigation">
                <span class="navbar-toggler-icon"></span>
              </button>
@@ -134,7 +134,7 @@
          
            <ul class="navbar-nav">
              <li class="nav-item dropdown">
-               <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">  About  </a>
+               <a class="nav-link dropdown-toggle fw-bold" href="#" data-bs-toggle="dropdown">  About  </a>
                  <ul class="dropdown-menu">
                  <li><a class="dropdown-item" href="{% url 'history' %}"> History </a></li>
                  <li><a class="dropdown-item" href="{% url 'vision_mission' %}"> Vision and Mission </a></li>
@@ -142,12 +142,12 @@
                     <ul class="submenu dropdown-menu">
                      <li><a class="dropdown-item" href="{% url 'staff' %}">Staff</a></li>
                      <li><a class="dropdown-item" href="{% url 'program_coor' %}">Program Coordinators</a></li>
-                     <li><a class="dropdown-item dropdown-toggle" href="#">Submenu item 3 </a>
+                     <!--<li><a class="dropdown-item dropdown-toggle" href="#">Submenu item 3 </a>
                        <ul class="submenu dropdown-menu">
                          <li><a class="dropdown-item" href="#">Multi level 1</a></li>
                          <li><a class="dropdown-item" href="#">Multi level 2</a></li>
                      </ul>
-                     </li>
+                     </li>-->
                   </ul>
                  </li>
                  <li><a class="dropdown-item" href="{% url 'contact' %}"> Contact</a></li>
@@ -155,7 +155,7 @@
              </li>
 
              <li class="nav-item dropdown">
-               <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">  Postgraduate Studies  </a>
+               <a class="nav-link dropdown-toggle fw-bold" href="#" data-bs-toggle="dropdown">  Postgraduate Studies  </a>
                  <ul class="dropdown-menu">
                  <li><a class="dropdown-item" href="{% url 'introduction' %}"> Introduction </a></li>
                  <li><a class="dropdown-item" href="{% url 'taught_pro' %}"> Taught Programs </a></li>
@@ -185,7 +185,7 @@
              </li>
 
              <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">  Research  </a>
+              <a class="nav-link dropdown-toggle fw-bold" href="#" data-bs-toggle="dropdown">  Research  </a>
                 <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="{% url 'research_areas' %}"> Research Areas </a></li>
                 <li><a class="dropdown-item" href="{% url 'research_labs' %}"> Research Laboratories </a></li>
@@ -203,7 +203,7 @@
             </li>
 
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">  Funding  </a>
+              <a class="nav-link dropdown-toggle fw-bold" href="#" data-bs-toggle="dropdown">  Funding  </a>
                 <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="{% url 'research_grants' %}"> University Research Grants </a></li>
                 <li><a class="dropdown-item" href="{% url 'publication_facilitation' %}"> Publication Facilitation </a></li>
@@ -212,7 +212,7 @@
             </li>
 
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">  Awards  </a>
+              <a class="nav-link dropdown-toggle fw-bold" href="#" data-bs-toggle="dropdown">  Awards  </a>
                 <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="{% url 'faculty_excel' %}"> Faculty Research Excellence Award </a></li>
                 <li><a class="dropdown-item" href="{% url 'university_excel' %}"> University Research Excellence Award </a></li>
@@ -222,7 +222,7 @@
             </li>
 
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">  Downloads  </a>
+              <a class="nav-link dropdown-toggle fw-bold" href="#" data-bs-toggle="dropdown">  Downloads  </a>
                 <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="{% url 'regulations' %}"> Regulations </a></li>
                 <li><a class="dropdown-item" href="{% url 'for_staff' %}"> For Staff </a></li>
@@ -266,7 +266,7 @@
                     <i class="fas fa-gem me-3" style="font-size: larger;">CERPS</i>
                   </h6>
                   <p>
-                    Promoting engineering research and postgraduate studies
+                    Promoting Engineering Research and Postgraduate Studies
                   </b>
                 </div>
 
@@ -275,19 +275,19 @@
                     Go to
                   </h6>
                   
-                    <p><a class="text-reset fw-bold" href="{% url 'index' %}" class="text-reset">Home</a></p>
+                    <p><a class="text-reset" href="{% url 'index' %}" class="text-reset">Home</a></p>
                   
-                    <p><a class="text-reset fw-bold" href="{% url 'history' %}" class="text-reset">About</a></p>
+                    <p><a class="text-reset" href="{% url 'history' %}" class="text-reset">About</a></p>
                  
-                    <p><a class="text-reset fw-bold" href="{% url 'introduction' %}" class="text-reset">Postgraduate studies</a></p>
+                    <p><a class="text-reset" href="{% url 'introduction' %}" class="text-reset">Postgraduate studies</a></p>
                   
-                    <p><a class="text-reset fw-bold" href="{% url 'research_areas' %}" class="text-reset">Research</a></p>
+                    <p><a class="text-reset" href="{% url 'research_areas' %}" class="text-reset">Research</a></p>
                   
-                    <p><a class="text-reset fw-bold" href="{% url 'research_grants' %}" class="text-reset">Funding</a></p>
+                    <p><a class="text-reset" href="{% url 'research_grants' %}" class="text-reset">Funding</a></p>
                   
-                    <p><a class="text-reset fw-bold" href="{% url 'faculty_excel' %}" class="text-reset">Awards</a></p>
+                    <p><a class="text-reset" href="{% url 'faculty_excel' %}" class="text-reset">Awards</a></p>
                   
-                    <p><a class="text-reset fw-bold" href="{% url 'regulations' %}" class="text-reset">Downloads</a></p>
+                    <p><a class="text-reset" href="{% url 'regulations' %}" class="text-reset">Downloads</a></p>
                   
                 </div>
                 
@@ -296,19 +296,19 @@
                     Quick Links
                   </h6>
                   <p>
-                    <a class="text-reset fw-bold" href="https://www.pdn.ac.lk/" class="text-reset">University of Peradeniya</a>
+                    <a class="text-reset" href="https://www.pdn.ac.lk/" class="text-reset">University of Peradeniya</a>
                   </p>
                   <p>
-                    <a class="text-reset fw-bold" href="https://eng.pdn.ac.lk/" class="text-reset">Faculty of Engineering</a>
+                    <a class="text-reset" href="https://eng.pdn.ac.lk/" class="text-reset">Faculty of Engineering</a>
                   </p>
                   <p>
-                    <a class="text-reset fw-bold" href="https://www.pdn.ac.lk/centers/urc/" class="text-reset">University Research Council</a>
+                    <a class="text-reset" href="https://www.pdn.ac.lk/centers/urc/" class="text-reset">University Research Council</a>
                   </p>
                   <p>
-                    <a class="text-reset fw-bold" href="https://inro.pdn.ac.lk/inro.php" class="text-reset">International Relations Office</a>
+                    <a class="text-reset" href="https://inro.pdn.ac.lk/inro.php" class="text-reset">International Relations Office</a>
                   </p>
                   <p>
-                    <a class="text-reset fw-bold" href="#!" class="text-reset">Ethical Review Committee</a>
+                    <a class="text-reset" href="#!" class="text-reset">Ethical Review Committee</a>
                   </p>
                 </div>
                 
@@ -317,7 +317,7 @@
                     Contact
                   </h6>
                   <i class="fas fa-home me-3">Center for Engineering,</i><br/>
-                  <i class="fas fa-home me-3">Research and postgraduate studies,</i><br/>
+                  <i class="fas fa-home me-3">Research and Postgraduate Studies,</i><br/>
                   <i class="fas fa-home me-3">Faculty of Engineering,</i><br/>
                   <i class="fas fa-home me-3">University of Peradeniya,</i><br/>
                   <i class="fas fa-home me-3">Peradeniya 20400.</i><br/><br/>
