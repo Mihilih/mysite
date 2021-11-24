@@ -30,6 +30,7 @@ float: left;
     color: black;
     font-size: 300%;
     text-align: center;
+    text-decoration: underline;
 }
 
 .carousel .carousel-item {

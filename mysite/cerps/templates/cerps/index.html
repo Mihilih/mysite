@@ -9,8 +9,8 @@
 <!--Home page-->
 <h1 class="header">Home</h1>
 
-<div class="grid-container">
-  <div id="carouselExampleCaptions" class="carousel slide grid-child" data-bs-ride="carousel" style="display: flex; flex-wrap: wrap;height: max-content;">
+
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" style="display: flex; flex-wrap: wrap;height: max-content;margin: 1%; margin-top: 2%;">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -158,8 +158,8 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
-    <div class="grid-child" style="display: flex; flex-wrap: wrap;height: 50%;" >
-      <div class="card" style="width: 14rem;width: 32%;">
+    <div  style="display: flex; flex-wrap: wrap;height: 50%;margin-left: 0.9%;" >
+      <div class="card" style="width: 14rem;width: 32%;margin: 0.5%;">
           <img src="{% static 'cerps/news.jpg' %}" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">News</h5>
@@ -167,7 +167,7 @@
             <a href="{% url 'news' %}" class="btn brown" >Read more</a>
           </div>
         </div>
-        <div class="card" style="width: 14rem;width: 32%;" >
+        <div class="card" style="width: 14rem;width: 32%;margin: 0.5%;" >
           <img src="{% static 'cerps/achievements.jpg' %}" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">Achievements</h5>
@@ -175,7 +175,7 @@
             <a href="{% url 'achievements' %}" class="btn brown" >Read more</a>
           </div>
         </div>
-        <div class="card" style="width: 14rem;width: 32%;">
+        <div class="card" style="width: 14rem;width: 32%;margin: 0.5%;">
           <img src="{% static 'cerps/events.jpg' %}" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">Events</h5>
@@ -184,6 +184,5 @@
           </div>
         </div>
     </div>
-  </div>
 
 {% endblock %}
