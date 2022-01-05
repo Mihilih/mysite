@@ -79,10 +79,6 @@ def journal(request):
         volume=request.POST['volume']
         issue=request.POST['issue']
         pages=request.POST['pages']
-        if int(pages)<0:
-            return render(request, "cerps/error.html",{
-                'message':"Enter a valid number of pages"
-            } )
 
         journal=Journal()
         journal.name=name

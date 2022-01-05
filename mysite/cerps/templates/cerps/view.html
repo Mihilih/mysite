@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
- - View ?
+ - Faculty of Engineering Research Information
 {% endblock %}
 
 {% block body %}
@@ -25,6 +25,9 @@
                     <th scope="col">Volume</th>
                     <th scope="col">Issue</th>
                     <th scope="col">Pages</th>
+                    {% if user.is_authenticated %}
+                    <th scope="col"></th>
+                    {% endif %}
                     </tr>
                 </thead>
                 <tbody>
@@ -37,7 +40,10 @@
                         <td scope="row">{{journal.volume}}</td>
                         <td scope="row">{{journal.issue}}</td>
                         <td scope="row">{{journal.pages}}</td>
-                    </tr>
+                        {% if user.is_authenticated %}
+                        <td scope="row"><a href="#" class="btn d-flex justify-content-center" style="border-color: #530d0d; width: 33%;margin: 0.5%;border-width: 0.3mm; align-self: right;">Edit</a></td>
+                        {% endif %}
+                      </tr>
                 {%empty%}
                     <tr>
                         <td>No Journal Publications</td>
@@ -46,6 +52,9 @@
                         <td></td>
                         <td></td>
                         <td></td>
+                        {% if user.is_authenticated %}
+                        <td></td>
+                        {% endif %}
                     </tr>
                 {%endfor%}
                 </tbody>
@@ -71,6 +80,9 @@
                     <th scope="col">Year</th>
                     <th scope="col">Publisher</th>
                     <th scope="col">ISBN</th>
+                    {% if user.is_authenticated %}
+                    <th scope="col"></th>
+                    {% endif %}
                     </tr>
                 </thead>
                 <tbody>
@@ -90,7 +102,10 @@
                     <td scope="row">{{book.year}}</td>
                     <td scope="row">{{book.publisher}}</td>
                     <td scope="row">{{book.isbn}}</td>
-                    </tr>
+                    {% if user.is_authenticated %}
+                    <td scope="row"><a href="#" class="btn d-flex justify-content-center" style="border-color: #530d0d; width: 33%;margin: 0.5%;border-width: 0.3mm; align-self: right;">Edit</a></td>
+                    {% endif %}  
+                  </tr>
                 {%empty%}
                     <tr>
                         <td>No Book Publications</td>
@@ -100,6 +115,9 @@
                         <td></td>
                         <td></td>
                         <td></td>
+                        {% if user.is_authenticated %}
+                        <td></td>
+                        {% endif %}
                     </tr>
                 {%endfor%}
                 </tbody>
@@ -118,11 +136,14 @@
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
-                    <th scope="col">Agency</th>
+                    <th scope="col">Country</th>
                     <th scope="col">Title</th>
                     <th scope="col">Number</th>
                     <th scope="col">Authors</th>
                     <th scope="col">Year</th>
+                    {% if user.is_authenticated %}
+                    <th scope="col"></th>
+                    {% endif %}
                     </tr>
                 </thead>
                 <tbody>
@@ -133,7 +154,10 @@
                     <td scope="row">{{patent.number}}</td>
                     <td scope="row">{%for author in patent.authors.all%}{{author.name}}<br/>{%endfor%}</td>
                     <td scope="row">{{patent.year}}</td>
-                    </tr>
+                    {% if user.is_authenticated %}
+                    <td scope="row"><a href="#" class="btn d-flex justify-content-center" style="border-color: #530d0d; width: 33%;margin: 0.5%;border-width: 0.3mm; align-self: right;">Edit</a></td>
+                    {% endif %}
+                  </tr>
                 {%empty%}
                     <tr>
                         <td>No Patents</td>
@@ -141,6 +165,9 @@
                         <td></td>
                         <td></td>
                         <td></td>
+                        {% if user.is_authenticated %}
+                        <td></td>
+                        {% endif %}
                     </tr>
                 {%endfor%}
                 </tbody>
@@ -159,12 +186,15 @@
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
-                    <th scope="col">Agency</th>
+                    <th scope="col">Funding Agency</th>
                     <th scope="col">Title</th>
                     <th scope="col">PI</th>
                     <th scope="col">Co-investigators</th>
                     <th scope="col">Budget</th>
                     <th scope="col">Duration</th>
+                    {% if user.is_authenticated %}
+                    <th scope="col"></th>
+                    {% endif %}
                     </tr>
                 </thead>
                 <tbody>
@@ -176,7 +206,10 @@
                     <td scope="row">{%for investigator in grant.co_investigators.all%}{{investigator.name}}<br/>{%endfor%}</td>
                     <td scope="row">Rs.{{grant.budget}}/=</td>
                     <td scope="row">From: {{grant.duration_from}} &nbsp;  To: {{grant.duration_to}}</td>
-                    </tr>
+                    {% if user.is_authenticated %}
+                    <td scope="row"><a href="#" class="btn d-flex justify-content-center" style="border-color: #530d0d; width: 33%;margin: 0.5%;border-width: 0.3mm; align-self: right;">Edit</a></td>
+                    {% endif %}
+                  </tr>
                 {%empty%}
                     <tr>
                         <td>No Research Grants</td>
@@ -185,6 +218,9 @@
                         <td></td>
                         <td></td>
                         <td></td>
+                        {% if user.is_authenticated %}
+                        <td></td>
+                        {% endif %}
                     </tr>
                 {%endfor%}
                 </tbody>
@@ -204,9 +240,12 @@
                 <thead>
                     <tr>
                     <th scope="col">Name</th>
-                    <th scope="col">Award</th>
+                    <th scope="col">Awarding Body</th>
                     <th scope="col">Year</th>
                     <th scope="col">Agency</th>
+                    {% if user.is_authenticated %}
+                    <th scope="col" style="align-self: right;"></th>
+                    {% endif %}
                     </tr>
                 </thead>
                 <tbody>
@@ -216,13 +255,19 @@
                     <td scope="row">{{award.award}}</td>
                     <td scope="row">{{award.year}}</td>
                     <td scope="row">{{award.agency}}</td>
-                    </tr>
+                    {% if user.is_authenticated %}
+                    <td scope="row"><a href="#" class="btn d-flex justify-content-center" style="border-color: #530d0d; width: 33%;margin: 0.5%;border-width: 0.3mm; align-self: right;">Edit</a></td>
+                    {% endif %}  
+                  </tr>
                 {%empty%}
                     <tr>
                         <td>No Research Awards</td>
                         <td></td>
                         <td></td>
                         <td></td>
+                        {% if user.is_authenticated %}
+                        <td></td>
+                        {% endif %}
                     </tr>
                 {%endfor%}
                 </tbody>
