@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.db import IntegrityError
 from django.http import JsonResponse
-from django.shortcuts import HttpResponse, HttpResponseRedirect, render
+from django.shortcuts import HttpResponse, HttpResponseRedirect, render, redirect
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 from datetime import date
@@ -405,3 +405,63 @@ def event_ind(request, event_id):
 #view achievements
 def achievement_ind(request, achievement_id):
     return render(request, "cerps/achievement{0}.html".format(achievement_id))
+
+#edit journal entry
+@login_required(login_url='login')
+def editjournal(request, journal_id):
+    pass
+
+#edit book entry
+@login_required(login_url='login')
+def editbook(request, book_id):
+    pass
+
+#edit patent entry
+@login_required(login_url='login')
+def editpatent(request, patent_id):
+    pass
+
+#edit grant entry
+@login_required(login_url='login')
+def editgrant(request, grant_id):
+    pass
+
+#edit award entry
+@login_required(login_url='login')
+def editaward(request, award_id):
+    pass
+
+#delete journal entry
+@login_required(login_url='login')
+def deletejournal(request, journal_id):
+    record = Journal.objects.get(id = journal_id)
+    record.delete()
+    return redirect('view')
+
+#delete book entry
+@login_required(login_url='login')
+def deletebook(request, book_id):
+    record = Book.objects.get(id = book_id)
+    record.delete()
+    return redirect('view')
+
+#delete patent entry
+@login_required(login_url='login')
+def deletepatent(request, patent_id):
+    record = Patent.objects.get(id = patent_id)
+    record.delete()
+    return redirect('view')
+
+#delete grant entry
+@login_required(login_url='login')
+def deletegrant(request, grant_id):
+    record = Grant.objects.get(id = grant_id)
+    record.delete()
+    return redirect('view')
+
+#delete award entry
+@login_required(login_url='login')
+def deleteaward(request, award_id):
+    record = Award.objects.get(id = award_id)
+    record.delete()
+    return redirect('view')

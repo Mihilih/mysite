@@ -5,6 +5,11 @@
  - Faculty of Engineering Research Information
 {% endblock %}
 
+{% block script %}
+    <script src="{% static 'cerps/edit.js' %}"></script>
+{% endblock %}
+
+
 {% block body %}
 
 <div class="accordion" id="accordionPanelsStayOpenExample">
@@ -41,7 +46,12 @@
                         <td scope="row">{{journal.issue}}</td>
                         <td scope="row">{{journal.pages}}</td>
                         {% if user.is_authenticated %}
-                        <td scope="row"><a href="#" class="btn d-flex justify-content-center" style="border-color: #530d0d; width: 33%;margin: 0.5%;border-width: 0.3mm; align-self: right;">Edit</a></td>
+                        <td scope="row">
+                          <div id="container"  style="flex-wrap: wrap;">
+                            <a href="#" id="editjournal_{{journal.id}}" onclick="editjournal('{{ journal.id }}')" class="btn d-flex justify-content-center" style="float: left;border-color: #530d0d; width: 33%;margin: 0.5%;border-width: 0.3mm;display:inline;">Edit</a>
+                            <a href="#" id="deletejournal_{{journal.id}}" onclick="deletejournal('{{ journal.id }}')" class="btn btn-outline-danger" style="float: left; width: 33%;margin: 0.5%;border-width: 0.3mm;display:inline;">Delete</a>
+                          </div>
+                        </td>
                         {% endif %}
                       </tr>
                 {%empty%}
@@ -82,6 +92,7 @@
                     <th scope="col">ISBN</th>
                     {% if user.is_authenticated %}
                     <th scope="col"></th>
+                    <th scope="col"></th>
                     {% endif %}
                     </tr>
                 </thead>
@@ -103,7 +114,12 @@
                     <td scope="row">{{book.publisher}}</td>
                     <td scope="row">{{book.isbn}}</td>
                     {% if user.is_authenticated %}
-                    <td scope="row"><a href="#" class="btn d-flex justify-content-center" style="border-color: #530d0d; width: 33%;margin: 0.5%;border-width: 0.3mm; align-self: right;">Edit</a></td>
+                    <td scope="row">
+                      <div id="container"  style="flex-wrap: wrap;">
+                        <a href="#" id="editbook_{{book.id}}" onclick="editbook('{{ book.id }}')" class="btn d-flex justify-content-center" style="float: left;border-color: #530d0d; width: 33%;margin: 0.5%;border-width: 0.3mm;display:inline;">Edit</a>
+                        <a href="#" id="deletebook_{{book.id}}" onclick="deletebook('{{ book.id }}')" class="btn btn-outline-danger" style="float: left; width: 33%;margin: 0.5%;border-width: 0.3mm;display:inline;">Delete</a>
+                      </div>
+                    </td>
                     {% endif %}  
                   </tr>
                 {%empty%}
@@ -143,6 +159,7 @@
                     <th scope="col">Year</th>
                     {% if user.is_authenticated %}
                     <th scope="col"></th>
+                    <th scope="col"></th>
                     {% endif %}
                     </tr>
                 </thead>
@@ -155,7 +172,12 @@
                     <td scope="row">{%for author in patent.authors.all%}{{author.name}}<br/>{%endfor%}</td>
                     <td scope="row">{{patent.year}}</td>
                     {% if user.is_authenticated %}
-                    <td scope="row"><a href="#" class="btn d-flex justify-content-center" style="border-color: #530d0d; width: 33%;margin: 0.5%;border-width: 0.3mm; align-self: right;">Edit</a></td>
+                    <td scope="row">
+                      <div id="container"  style="flex-wrap: wrap;">
+                        <a href="#" id="editpatent_{{patent.id}}" onclick="editpatent('{{ patent.id }}')" class="btn d-flex justify-content-center" style="float: left;border-color: #530d0d; width: 33%;margin: 0.5%;border-width: 0.3mm;display:inline;">Edit</a>
+                        <a href="#" id="deletepatent_{{patent.id}}" onclick="deletepatent('{{ patent.id }}')" class="btn btn-outline-danger" style="float: left; width: 33%;margin: 0.5%;border-width: 0.3mm;display:inline;">Delete</a>
+                      </div>
+                    </td>
                     {% endif %}
                   </tr>
                 {%empty%}
@@ -194,6 +216,7 @@
                     <th scope="col">Duration</th>
                     {% if user.is_authenticated %}
                     <th scope="col"></th>
+                    <th scope="col"></th>
                     {% endif %}
                     </tr>
                 </thead>
@@ -207,7 +230,12 @@
                     <td scope="row">Rs.{{grant.budget}}/=</td>
                     <td scope="row">From: {{grant.duration_from}} &nbsp;  To: {{grant.duration_to}}</td>
                     {% if user.is_authenticated %}
-                    <td scope="row"><a href="#" class="btn d-flex justify-content-center" style="border-color: #530d0d; width: 33%;margin: 0.5%;border-width: 0.3mm; align-self: right;">Edit</a></td>
+                    <td scope="row">
+                      <div id="container"  style="flex-wrap: wrap;">
+                        <a href="#" id="editgrant_{{grant.id}}" onclick="editgrant('{{ grant.id }}')" class="btn d-flex justify-content-center" style="float: left;border-color: #530d0d; width: 33%;margin: 0.5%;border-width: 0.3mm;display:inline;">Edit</a>
+                        <a href="#" id="deletegrant_{{grant.id}}" onclick="deletegrant('{{ grant.id }}')" class="btn btn-outline-danger" style="float: left;width: 33%;margin: 0.5%;border-width: 0.3mm;display:inline;">Delete</a>
+                      </div>
+                    </td>
                     {% endif %}
                   </tr>
                 {%empty%}
@@ -256,7 +284,12 @@
                     <td scope="row">{{award.year}}</td>
                     <td scope="row">{{award.agency}}</td>
                     {% if user.is_authenticated %}
-                    <td scope="row"><a href="#" class="btn d-flex justify-content-center" style="border-color: #530d0d; width: 33%;margin: 0.5%;border-width: 0.3mm; align-self: right;">Edit</a></td>
+                    <td scope="row">
+                      <div id="container"  style="flex-wrap: wrap;">
+                        <a href="#" id="editaward_{{award.id}}" onclick="editaward('{{ award.id }}')" class="btn d-flex justify-content-center" style="float: left;border-color: #530d0d; width: 33%;margin: 0.5%;border-width: 0.3mm;display:inline;">Edit</a>
+                        <a href="#" id="deleteaward_{{award.id}}" onclick="deleteaward('{{ award.id }}')" class="btn btn-outline-danger" style="float: left; width: 33%;margin: 0.5%;border-width: 0.3mm;display:inline;">Delete</a>
+                      </div>
+                    </td>
                     {% endif %}  
                   </tr>
                 {%empty%}
