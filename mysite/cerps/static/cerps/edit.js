@@ -1,26 +1,31 @@
 //to edit a jounral entry
 function editjournal(id) {
-    
+    document.querySelector(`#edit_journal${id}`).style.display ='';
+    document.querySelector(`#journal${id}`).style.display = 'none';
 }
 
 //to edit a book entry
 function editbook(id) {
-    
+    document.querySelector(`#edit_book${id}`).style.display ='';
+    document.querySelector(`#book${id}`).style.display = 'none';
 }
 
 //to edit a patent entry
 function editpatent(id) {
-    
+    document.querySelector(`#edit_patent${id}`).style.display ='';
+    document.querySelector(`#patent${id}`).style.display = 'none';
 }
 
 //to edit a grant entry
 function editgrant(id) {
-    
+    document.querySelector(`#edit_grant${id}`).style.display ='';
+    document.querySelector(`#grant${id}`).style.display = 'none';
 }
 
 //to edit an award entry
 function editaward(id) {
-    
+    document.querySelector(`#edit_award${id}`).style.display ='';
+    document.querySelector(`#award${id}`).style.display = 'none';
 }
 
 
