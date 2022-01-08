@@ -138,11 +138,11 @@ def book(request):
         book.book_bool=chap
         if chap:
             book.book_title=book_title
-            if chap_title is not "":
+            if chap_title != "":
                 book.chapter_title=chap_title
         else:
             book.chapter_title=chap_title
-            if book_title is not "":
+            if book_title != "":
                 book.book_title=book_title
         book.year=year
         book.isbn=isbn
@@ -407,29 +407,158 @@ def achievement_ind(request, achievement_id):
     return render(request, "cerps/achievement{0}.html".format(achievement_id))
 
 #edit journal entry
+@csrf_exempt
 @login_required(login_url='login')
 def editjournal(request, journal_id):
-    pass
+    entry = Journal.objects.get(id=journal_id)
+
+    if request.method == "PUT":
+        data = json.loads(request.body)
+        if data.get("name") is not None:
+            entry.name = data["name"]
+            entry.title = data["title"]
+            entry.volume = data["volume"]
+            entry.issue = data["issue"]
+            entry.pages = data["pages"]
+            authors=data["authors"]
+            authlist=[x.strip() for x in authors.split(',')]
+            auth=[]
+            for x in authlist:
+                try:
+                    person=People.objects.get(name=x)
+                    auth.append(person)
+                except People.DoesNotExist:
+                    person=People()
+                    person.name=x
+                    person.save()
+                    per=People.objects.get(name=x)
+                    auth.append(per)
+            entry.authors.clear()
+            for x in auth:
+                entry.authors.add(x)
+            entry.save()
+        return HttpResponse(status=204)
 
 #edit book entry
+@csrf_exempt
 @login_required(login_url='login')
 def editbook(request, book_id):
-    pass
+    entry = Book.objects.get(id=book_id)
+
+    if request.method == "PUT":
+        data = json.loads(request.body)
+        if data.get("year") is not None:
+            if data["bool"]=="Book":
+                entry.book_bool = True
+            else:
+                entry.book_bool = False
+            
+            
+            entry.book_title = data["book_title"]
+            entry.chap_title = data["chapter_title"]
+            entry.year = data["year"]
+            entry.publisher = data["publisher"]
+            entry.isbn = data["isbn"]
+            authors=data["authors"]
+            authlist=[x.strip() for x in authors.split(',')]
+            auth=[]
+            for x in authlist:
+                try:
+                    person=People.objects.get(name=x)
+                    auth.append(person)
+                except People.DoesNotExist:
+                    person=People()
+                    person.name=x
+                    person.save()
+                    per=People.objects.get(name=x)
+                    auth.append(per)
+            entry.authors.clear()
+            for x in auth:
+                entry.authors.add(x)
+            entry.save()
+        return HttpResponse(status=204)
 
 #edit patent entry
+@csrf_exempt
 @login_required(login_url='login')
 def editpatent(request, patent_id):
-    pass
+    entry = Patent.objects.get(id=patent_id)
+
+    if request.method == "PUT":
+        data = json.loads(request.body)
+        if data.get("title") is not None:
+            entry.agency = data["agency"]
+            entry.title = data["title"]
+            entry.year = data["year"]
+            entry.number = data["number"]
+            authors=data["authors"]
+            authlist=[x.strip() for x in authors.split(',')]
+            auth=[]
+            for x in authlist:
+                try:
+                    person=People.objects.get(name=x)
+                    auth.append(person)
+                except People.DoesNotExist:
+                    person=People()
+                    person.name=x
+                    person.save()
+                    per=People.objects.get(name=x)
+                    auth.append(per)
+            entry.authors.clear()
+            for x in auth:
+                entry.authors.add(x)
+            entry.save()
+        return HttpResponse(status=204)
 
 #edit grant entry
+@csrf_exempt
 @login_required(login_url='login')
 def editgrant(request, grant_id):
-    pass
+    entry = Grant.objects.get(id=grant_id)
+
+    if request.method == "PUT":
+        data = json.loads(request.body)
+        if data.get("title") is not None:
+            entry.agency = data["agency"]
+            entry.title = data["title"]
+            entry.pi = data["pi"]
+            entry.budget = data["budget"]
+            entry.duration_from = data["from"]
+            entry.duration_to = data["to"]
+            authors=data["investigators"]
+            authlist=[x.strip() for x in authors.split(',')]
+            auth=[]
+            for x in authlist:
+                try:
+                    person=People.objects.get(name=x)
+                    auth.append(person)
+                except People.DoesNotExist:
+                    person=People()
+                    person.name=x
+                    person.save()
+                    per=People.objects.get(name=x)
+                    auth.append(per)
+            entry.co_investigators.clear()
+            for x in auth:
+                entry.co_investigators.add(x)
+            entry.save()
+        return HttpResponse(status=204)
 
 #edit award entry
+@csrf_exempt
 @login_required(login_url='login')
 def editaward(request, award_id):
-    pass
+    entry = Award.objects.get(id=award_id)
+
+    if request.method == "PUT":
+        data = json.loads(request.body)
+        if data.get("name") is not None:
+            entry.name = data["name"]
+            entry.award = data["award"]
+            entry.year = data["year"]
+            entry.agency = data["agency"]
+            entry.save()
+        return HttpResponse(status=204)
 
 #delete journal entry
 @login_required(login_url='login')

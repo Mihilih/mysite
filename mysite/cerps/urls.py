@@ -28,7 +28,6 @@ urlpatterns = [
     path("course_req", views.course_req, name="course_req"),
     path("thesis_format", views.thesis_format, name="thesis_format"),
     path("thesis_examiners", views.thesis_examiners, name="thesis_examiners"),
-
     path("research_areas", views.research_areas, name="research_areas"),
     path("research_labs", views.research_labs, name="research_labs"),
     path("ongoing", views.ongoing, name="ongoing"),

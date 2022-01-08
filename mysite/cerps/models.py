@@ -17,7 +17,7 @@ class Journal(models.Model):
     id=models.AutoField(primary_key=True)
     name=models.TextField(max_length=10000, blank=False, default="")
     title=models.TextField(max_length=10000, blank=False, default="")
-    authors=models.ManyToManyField("People", related_name="journal")
+    authors=models.ManyToManyField("People", related_name="journal", blank=True)
     volume=models.IntegerField(blank=False, default=0)
     issue=models.IntegerField(blank=False, default=0)
     pages=models.TextField(max_length=10000, blank=False, default="")

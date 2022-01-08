@@ -59,9 +59,9 @@
                         <td scope="row"><textarea class="form-control mb-2" id="edit_journal_name_{{journal.id}}" name="edit_journal_name">{{journal.name}}</textarea></td>
                         <td scope="row"><textarea class="form-control mb-2" id="edit_journal_title_{{journal.id}}" name="edit_journal_title">{{journal.title}}</textarea></td>
                         <td scope="row"><textarea class="form-control mb-2" id="edit_journal_author_{{journal.id}}" name="edit_journal_author" placeholder="separated by commas">{%for author in journal.authors.all%}{{author.name}}, {%endfor%}</textarea></td>
-                        <td scope="row"><textarea class="form-control mb-2" id="edit_journal_volume_{{journal.id}}" name="edit_journal_volume">{{journal.volume}}</textarea></td>
-                        <td scope="row"><textarea class="form-control mb-2" id="edit_journal_issue_{{journal.id}}" name="edit_journal_issue">{{journal.issue}}</textarea></td>
-                        <td scope="row"><textarea class="form-control mb-2" id="edit_journal_pages_{{journal.id}}" name="edit_journal_pages">{{journal.pages}}</textarea></td>
+                        <td scope="row"><input type="number" class="form-control mb-2" id="edit_journal_volume_{{journal.id}}" name="edit_journal_volume" value={{journal.volume}}></td>
+                        <td scope="row"><input type="number" class="form-control mb-2" id="edit_journal_issue_{{journal.id}}" name="edit_journal_issue" value={{journal.issue}}></td>
+                        <td scope="row"><input type="number" class="form-control mb-2" id="edit_journal_pages_{{journal.id}}" name="edit_journal_pages"value={{journal.pages}}></td>
                         <td scope="row"><button id="edit_journal_{{journal.id}}" class="btn btn-outline-secondary">Save</button></br></td>
                       </tr>
                       {% endif %}
@@ -135,16 +135,22 @@
                   {% if user.is_authenticated %}
                       <tr id="edit_book{{book.id}}" style="display: none;">
                         <td scope="row">
-                            {%if book.book_bool is True%}
-                                Book?<input id="edit_book_bool_{{book.id}}" name="edit_book_bool" type="checkbox" checked>
-                            {%else%}
-                                book?<input id="edit_book_bool_{{book.id}}" name="edit_book_bool" type="checkbox">
-                            {%endif%}
+                          {%if book.book_bool is True%}
+                          <select id="edit_book_bool_{{book.id}}" class="form-control col-md-3" name="edit_book_bool" >
+                              <option value='Book'>Book</option>
+                              <option value='Chapter'>Chapter</option>
+                          </select>
+                          {%else%}
+                          <select id="edit_book_bool_{{book.id}}" class="form-control col-md-3" name="edit_book_bool" >
+                            <option value='Chapter'>Chapter</option>
+                            <option value='Book'>Book</option>
+                          </select>
+                          {%endif%}
                         </td>
                         <td scope="row"><textarea class="form-control mb-2" id="edit_book_title_{{book.id}}" name="edit_book_title">{{book.book_title}}</textarea></td>
                         <td scope="row"><textarea class="form-control mb-2" id="edit_book_chapter_title_{{book.id}}" name="edit_book_chapter_title">{{book.chapter_title}}</textarea></td>
                         <td scope="row"><textarea class="form-control mb-2" id="edit_book_author_{{book.id}}" name="edit_book_author" placeholder="separated by commas">{%for author in book.authors.all%}{{author.name}}, {%endfor%}</textarea></td>
-                        <td scope="row"><textarea class="form-control mb-2" id="edit_book_year_{{book.id}}" name="edit_book_year">{{book.year}}</textarea></td>
+                        <td scope="row"><input type="number"  class="form-control mb-2" id="edit_book_year_{{book.id}}" name="edit_book_year" value={{book.year}}></td>
                         <td scope="row"><textarea class="form-control mb-2" id="edit_book_publisher_{{book.id}}" name="edit_book_publisher">{{book.publisher}}</textarea></td>
                         <td scope="row"><textarea class="form-control mb-2" id="edit_book_isbn_{{book.id}}" name="edit_book_isbn">{{book.isbn}}</textarea></td>
                         <td scope="row"><button id="edit_book_{{book.id}}" class="btn btn-outline-secondary">Save</button></br></td>
@@ -196,7 +202,7 @@
                     <td scope="row">{{patent.agency}}</td>
                     <td scope="row">{{patent.title}}</td>
                     <td scope="row">{{patent.number}}</td>
-                    <td scope="row">{%for author in patent.authors.all%}{{author.name}}<br/><br/>{%endfor%}</td>
+                    <td scope="row">{%for author in patent.authors.all%}{{author.name}}<br/>{%endfor%}</td>
                     <td scope="row">{{patent.year}}</td>
                     {% if user.is_authenticated %}
                     <td scope="row">
@@ -211,9 +217,9 @@
                   <tr id="edit_patent{{patent.id}}" style="display: none;">
                     <td scope="row"><textarea class="form-control mb-2" id="edit_patent_agency_{{patent.id}}" name="edit_patent_agency">{{patent.agency}}</textarea></td>
                     <td scope="row"><textarea class="form-control mb-2" id="edit_patent_title_{{patent.id}}" name="edit_patent_title">{{patent.title}}</textarea></td>
-                    <td scope="row"><textarea class="form-control mb-2" id="edit_patent_number_{{patent.id}}" name="edit_patent_number">{{patent.number}}</textarea></td>
+                    <td scope="row"><input type="number" class="form-control mb-2" id="edit_patent_number_{{patent.id}}" name="edit_patent_number"value={{patent.number}} ></td>
                     <td scope="row"><textarea class="form-control mb-2" id="edit_patent_author_{{patent.id}}" name="edit_patent_author">{%for author in patent.authors.all%}{{author.name}}, {%endfor%}</textarea></td>
-                    <td scope="row"><textarea class="form-control mb-2" id="edit_patent_year_{{patent.id}}" name="edit_patent_year">{{patent.year}}</textarea></td>
+                    <td scope="row"><input type="number" class="form-control mb-2" id="edit_patent_year_{{patent.id}}" name="edit_patent_year" value={{patent.year}}></td>
                     <td scope="row"><button id="edit_patent_{{patent.id}}" class="btn btn-outline-secondary">Save</button></br></td>
                   </tr>
                   {% endif %}
@@ -280,7 +286,7 @@
                         <td scope="row"><textarea class="form-control mb-2" id="edit_grant_title_{{grant.id}}" name="edit_grant_title">{{grant.title}}</textarea></td>
                         <td scope="row"><textarea class="form-control mb-2" id="edit_grant_pi_{{grant.id}}" name="edit_grant_pi">{{grant.pi}}</textarea></td>
                         <td scope="row"><textarea class="form-control mb-2" id="edit_grant_investigator_{{grant.id}}" name="edit_grant_investigator" placeholder="separated by commas">{%for investigator in grant.co_investigators.all%}{{investigator.name}}, {%endfor%}</textarea></td>
-                        <td scope="row"><textarea class="form-control mb-2" id="edit_grant_budget_{{grant.id}}" name="edit_grant_budget">{{grant.budget}}</textarea></td>
+                        <td scope="row"><input type="number" class="form-control mb-2" id="edit_grant_budget_{{grant.id}}" name="edit_grant_budget" value={{grant.budget}}></td>
                         <div id="container"></div>
                           <td scope="row" style="flex-wrap: wrap;"><input type="date" id="edit_grant_from_{{grant.id}}" class="form-control mb-2" name="edit_from_from" style="float: left;display: inline;">
                           <input type="date" class="form-control mb-2" id="edit_grant_to_{{grant.id}}" name="edit_from_to" style="float: left;display: inline;"></td>
@@ -346,7 +352,7 @@
                   <tr id="edit_award{{award.id}}" style="display: none;">
                     <td scope="row"><textarea class="form-control mb-2" id="edit_award_name_{{award.id}}" name="edit_name_agency">{{award.name}}</textarea></td>
                     <td scope="row"><textarea class="form-control mb-2" id="edit_award_award_{{award.id}}" name="edit_award_award">{{award.award}}</textarea></td>
-                    <td scope="row"><textarea class="form-control mb-2" id="edit_award_year_{{award.id}}" name="edit_award_year">{{award.year}}</textarea></td>
+                    <td scope="row"><input type="number" class="form-control mb-2" id="edit_award_year_{{award.id}}" name="edit_award_year" value={{award.year}}></td>
                     <td scope="row"><textarea class="form-control mb-2" id="edit_award_agency_{{award.id}}" name="edit_award_agency">{{award.agency}}</textarea></td>
                     <td scope="row"><button id="edit_award_{{award.id}}" class="btn btn-outline-secondary">Save</button></br></td>
                   </tr>
