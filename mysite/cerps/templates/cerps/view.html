@@ -49,7 +49,7 @@
                         <td scope="row">
                           <div id="container"  style="flex-wrap: wrap;">
                             <a href="#" id="editjournal_{{journal.id}}" onclick="editjournal('{{ journal.id }}')" class="btn d-flex justify-content-center" style="float: left;border-color: #530d0d; width: 33%;margin: 0.5%;border-width: 0.3mm;display:inline;">Edit</a>
-                            <a href="#" id="deletejournal_{{journal.id}}" onclick="deletejournal('{{ journal.id }}')" class="btn btn-outline-danger" style="float: left; width: 33%;margin: 0.5%;border-width: 0.3mm;display:inline;">Delete</a>
+                            <a href="#" id="deletejournal_{{journal.id}}" onclick="deletejournal('{{ journal.id }}')" class="btn btn-outline-danger d-flex justify-content-center" style="float: left; width: 33%;margin: 0.5%;border-width: 0.3mm;display:inline;">Delete</a>
                           </div>
                         </td>
                         {% endif %}
@@ -127,7 +127,7 @@
                       <td scope="row">
                         <div id="container"  style="flex-wrap: wrap;">
                           <a href="#" id="editbook_{{book.id}}" onclick="editbook('{{ book.id }}')" class="btn d-flex justify-content-center" style="float: left;border-color: #530d0d; width: 33%;margin: 0.5%;border-width: 0.3mm;display:inline;">Edit</a>
-                          <a href="#" id="deletebook_{{book.id}}" onclick="deletebook('{{ book.id }}')" class="btn btn-outline-danger" style="float: left; width: 33%;margin: 0.5%;border-width: 0.3mm;display:inline;">Delete</a>
+                          <a href="#" id="deletebook_{{book.id}}" onclick="deletebook('{{ book.id }}')" class="btn btn-outline-danger d-flex justify-content-center" style="float: left; width: 33%;margin: 0.5%;border-width: 0.3mm;display:inline;">Delete</a>
                         </div>
                       </td>
                       {% endif %}  
@@ -208,7 +208,7 @@
                     <td scope="row">
                       <div id="container"  style="flex-wrap: wrap;">
                         <a href="#" id="editpatent_{{patent.id}}" onclick="editpatent('{{ patent.id }}')" class="btn d-flex justify-content-center" style="float: left;border-color: #530d0d; width: 33%;margin: 0.5%;border-width: 0.3mm;display:inline;">Edit</a>
-                        <a href="#" id="deletepatent_{{patent.id}}" onclick="deletepatent('{{ patent.id }}')" class="btn btn-outline-danger" style="float: left; width: 33%;margin: 0.5%;border-width: 0.3mm;display:inline;">Delete</a>
+                        <a href="#" id="deletepatent_{{patent.id}}" onclick="deletepatent('{{ patent.id }}')" class="btn btn-outline-danger d-flex justify-content-center" style="float: left; width: 33%;margin: 0.5%;border-width: 0.3mm;display:inline;">Delete</a>
                       </div>
                     </td>
                     {% endif %}
@@ -275,7 +275,7 @@
                       <td scope="row">
                         <div id="container"  style="flex-wrap: wrap;">
                           <a href="#" id="editgrant_{{grant.id}}" onclick="editgrant('{{ grant.id }}')" class="btn d-flex justify-content-center" style="float: left;border-color: #530d0d; width: 33%;margin: 0.5%;border-width: 0.3mm;display:inline;">Edit</a>
-                          <a href="#" id="deletegrant_{{grant.id}}" onclick="deletegrant('{{ grant.id }}')" class="btn btn-outline-danger" style="float: left;width: 33%;margin: 0.5%;border-width: 0.3mm;display:inline;">Delete</a>
+                          <a href="#" id="deletegrant_{{grant.id}}" onclick="deletegrant('{{ grant.id }}')" class="btn btn-outline-danger d-flex justify-content-center" style="float: left;width: 33%;margin: 0.5%;border-width: 0.3mm;display:inline;">Delete</a>
                         </div>
                       </td>
                       {% endif %}
@@ -342,8 +342,8 @@
                       {% if user.is_authenticated %}
                       <td scope="row">
                         <div id="container"  style="flex-wrap: wrap;">
-                          <a href="#" id="editaward_{{award.id}}" onclick="editaward('{{ award.id }}')" class="btn d-flex justify-content-center" style="float: left;border-color: #530d0d; width: 33%;margin: 0.5%;border-width: 0.3mm;display:inline;">Edit</a>
-                          <a href="#" id="deleteaward_{{award.id}}" onclick="deleteaward('{{ award.id }}')" class="btn btn-outline-danger" style="float: left; width: 33%;margin: 0.5%;border-width: 0.3mm;display:inline;">Delete</a>
+                          <a href="#" id="editaward_{{award.id}}" onclick="editaward('{{ award.id }}')" class="btn d-flex justify-content-center" style="float: left;border-color: #530d0d; width: 33%;margin: 0.5%;border-width: 0.3mm;display:inline;text-align: center;">Edit</a>
+                          <a href="#" id="deleteaward_{{award.id}}" onclick="deleteaward('{{ award.id }}')" class="btn btn-outline-danger d-flex justify-content-center" style="float: left; width: 33%;margin: 0.5%;border-width: 0.3mm;display:inline;text-align: center;">Delete</a>
                         </div>
                       </td>
                       {% endif %}  

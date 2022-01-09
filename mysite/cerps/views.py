@@ -67,15 +67,16 @@ def journal(request):
         authlist=[x.strip() for x in authors.split(',')]
         auth=[]
         for x in authlist:
-            try:
-                person=People.objects.get(name=x)
-                auth.append(person)
-            except People.DoesNotExist:
-                person=People()
-                person.name=x
-                person.save()
-                per=People.objects.get(name=x)
-                auth.append(per)
+            if x!="":
+                try:
+                    person=People.objects.get(name=x)
+                    auth.append(person)
+                except People.DoesNotExist:
+                    person=People()
+                    person.name=x
+                    person.save()
+                    per=People.objects.get(name=x)
+                    auth.append(per)
         volume=request.POST['volume']
         issue=request.POST['issue']
         pages=request.POST['pages']
@@ -117,15 +118,16 @@ def book(request):
         authlist=[x.strip() for x in authors.split(',')]
         auth=[]
         for x in authlist:
-            try:
-                person=People.objects.get(name=x)
-                auth.append(person)
-            except People.DoesNotExist:
-                person=People()
-                person.name=x
-                person.save()
-                per=People.objects.get(name=x)
-                auth.append(per)
+            if x!="":
+                try:
+                    person=People.objects.get(name=x)
+                    auth.append(person)
+                except People.DoesNotExist:
+                    person=People()
+                    person.name=x
+                    person.save()
+                    per=People.objects.get(name=x)
+                    auth.append(per)
         isbn=request.POST['isbn']
         year=request.POST['year']
         if int(year)>date.today().year or int(year)<1900:
@@ -166,15 +168,16 @@ def patent(request):
         authlist=[x.strip() for x in authors.split(',')]
         auth=[]
         for x in authlist:
-            try:
-                person=People.objects.get(name=x)
-                auth.append(person)
-            except People.DoesNotExist:
-                person=People()
-                person.name=x
-                person.save()
-                per=People.objects.get(name=x)
-                auth.append(per)
+            if x!="":
+                try:
+                    person=People.objects.get(name=x)
+                    auth.append(person)
+                except People.DoesNotExist:
+                    person=People()
+                    person.name=x
+                    person.save()
+                    per=People.objects.get(name=x)
+                    auth.append(per)
         year=request.POST['year']
         if int(year)>date.today().year or int(year)<1900:
             return render(request, "cerps/error.html",{
@@ -205,15 +208,16 @@ def grant(request):
         authlist=[x.strip() for x in co_investigators.split(',')]
         auth=[]
         for x in authlist:
-            try:
-                person=People.objects.get(name=x)
-                auth.append(person)
-            except People.DoesNotExist:
-                person=People()
-                person.name=x
-                person.save()
-                per=People.objects.get(name=x)
-                auth.append(per)
+            if x!="":
+                try:
+                    person=People.objects.get(name=x)
+                    auth.append(person)
+                except People.DoesNotExist:
+                    person=People()
+                    person.name=x
+                    person.save()
+                    per=People.objects.get(name=x)
+                    auth.append(per)
         budget=request.POST['budget']
         duration_from=request.POST['from']
         duration_to=request.POST['to']
@@ -424,15 +428,16 @@ def editjournal(request, journal_id):
             authlist=[x.strip() for x in authors.split(',')]
             auth=[]
             for x in authlist:
-                try:
-                    person=People.objects.get(name=x)
-                    auth.append(person)
-                except People.DoesNotExist:
-                    person=People()
-                    person.name=x
-                    person.save()
-                    per=People.objects.get(name=x)
-                    auth.append(per)
+                if x!="":
+                    try:
+                        person=People.objects.get(name=x)
+                        auth.append(person)
+                    except People.DoesNotExist:
+                        person=People()
+                        person.name=x
+                        person.save()
+                        per=People.objects.get(name=x)
+                        auth.append(per)
             entry.authors.clear()
             for x in auth:
                 entry.authors.add(x)
@@ -450,12 +455,26 @@ def editbook(request, book_id):
         if data.get("year") is not None:
             if data["bool"]=="Book":
                 entry.book_bool = True
+                if data["book_title"] =="":
+                    return render(request, "cerps/error.html",{
+                    'message':"Enter valid year"
+                    } )
+                #return a message to javascript
             else:
                 entry.book_bool = False
-            
+                if data["chapter_title"] =="":
+                    return render(request, "cerps/error.html",{
+                    'message':"Enter valid year"
+                    } )
+                #return a message to javascript
             
             entry.book_title = data["book_title"]
             entry.chap_title = data["chapter_title"]
+            if int(data["year"])>date.today().year or int(data["year"])<1900:
+                return render(request, "cerps/error.html",{
+                'message':"Enter valid year"
+                } )
+                #return a message to javascript
             entry.year = data["year"]
             entry.publisher = data["publisher"]
             entry.isbn = data["isbn"]
@@ -463,15 +482,16 @@ def editbook(request, book_id):
             authlist=[x.strip() for x in authors.split(',')]
             auth=[]
             for x in authlist:
-                try:
-                    person=People.objects.get(name=x)
-                    auth.append(person)
-                except People.DoesNotExist:
-                    person=People()
-                    person.name=x
-                    person.save()
-                    per=People.objects.get(name=x)
-                    auth.append(per)
+                if x!="":
+                    try:
+                        person=People.objects.get(name=x)
+                        auth.append(person)
+                    except People.DoesNotExist:
+                        person=People()
+                        person.name=x
+                        person.save()
+                        per=People.objects.get(name=x)
+                        auth.append(per)
             entry.authors.clear()
             for x in auth:
                 entry.authors.add(x)
@@ -489,21 +509,26 @@ def editpatent(request, patent_id):
         if data.get("title") is not None:
             entry.agency = data["agency"]
             entry.title = data["title"]
+            if int(data["year"])>date.today().year or int(data["year"])<1900:
+                return render(request, "cerps/error.html",{
+                'message':"Enter valid year"
+                } )
             entry.year = data["year"]
             entry.number = data["number"]
             authors=data["authors"]
             authlist=[x.strip() for x in authors.split(',')]
             auth=[]
             for x in authlist:
-                try:
-                    person=People.objects.get(name=x)
-                    auth.append(person)
-                except People.DoesNotExist:
-                    person=People()
-                    person.name=x
-                    person.save()
-                    per=People.objects.get(name=x)
-                    auth.append(per)
+                if x!="":
+                    try:
+                        person=People.objects.get(name=x)
+                        auth.append(person)
+                    except People.DoesNotExist:
+                        person=People()
+                        person.name=x
+                        person.save()
+                        per=People.objects.get(name=x)
+                        auth.append(per)
             entry.authors.clear()
             for x in auth:
                 entry.authors.add(x)
@@ -529,15 +554,16 @@ def editgrant(request, grant_id):
             authlist=[x.strip() for x in authors.split(',')]
             auth=[]
             for x in authlist:
-                try:
-                    person=People.objects.get(name=x)
-                    auth.append(person)
-                except People.DoesNotExist:
-                    person=People()
-                    person.name=x
-                    person.save()
-                    per=People.objects.get(name=x)
-                    auth.append(per)
+                if x!="":
+                    try:
+                        person=People.objects.get(name=x)
+                        auth.append(person)
+                    except People.DoesNotExist:
+                        person=People()
+                        person.name=x
+                        person.save()
+                        per=People.objects.get(name=x)
+                        auth.append(per)
             entry.co_investigators.clear()
             for x in auth:
                 entry.co_investigators.add(x)
@@ -555,6 +581,10 @@ def editaward(request, award_id):
         if data.get("name") is not None:
             entry.name = data["name"]
             entry.award = data["award"]
+            if int(data["year"])>date.today().year or int(data["year"])<1900:
+                return render(request, "cerps/error.html",{
+                'message':"Enter valid year"
+                } )
             entry.year = data["year"]
             entry.agency = data["agency"]
             entry.save()
