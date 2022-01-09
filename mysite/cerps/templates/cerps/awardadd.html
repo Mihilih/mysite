@@ -12,15 +12,15 @@
     <form action="{% url 'award' %}" method="POST">
         {% csrf_token %}
         <div class="form-group">
-            <input class="form-control" autofocus type="text" name="name" placeholder="Name" required>
+            <input class="form-control" autofocus type="text" name="name" placeholder="Name of the Awardee" required>
         </div>
         <br/>
         <div class="form-group">
-            <input class="form-control" autofocus type="text" name="award" placeholder="Awarding Body" required>
+            <input class="form-control" autofocus type="text" name="award" placeholder="Award" required>
         </div>
         <br/>
         <div class="form-group">
-            <input class="form-control" autofocus type="text" name="agency" placeholder="Agency" required>
+            <input class="form-control" autofocus type="text" name="agency" placeholder="Awarding body" required>
         </div>
         <br/>
         <div class="form-group">
